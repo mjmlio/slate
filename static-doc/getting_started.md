@@ -74,6 +74,8 @@ Let's take the following layout to illustrate this:
   </mj-body>
 </mjml>
 ```
+### Fixing Rendering Issues
+Sometimes desktop column layouts will render as mobile in Office365 for Web. To resolve this, add `owa="desktop"` to your root `mjml` tag. This forces the client to render the email in desktop mode.
 
 ## Nesting
 
