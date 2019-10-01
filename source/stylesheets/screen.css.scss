@@ -607,3 +607,22 @@ html, body {
 .highlight, .highlight .w {
   background-color: $code-bg;
 }
+
+// Custom theme
+
+// Code background
+.content pre, .content blockquote {
+  background-color: #292c33;
+}
+
+.highlight {
+  .nt {
+    color: rgba(255, 83, 112, 1);
+  }
+  .na {
+    color: #FFCB6B;
+  }
+  .s {
+    color: #C3E88D;
+  }
+}
