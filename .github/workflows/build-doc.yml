@@ -31,5 +31,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.documentation_token }}
-          BRANCH: test-gh-pages
+          BRANCH: gh-pages
           FOLDER: mjml-doc
