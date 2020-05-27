@@ -1,13 +1,8 @@
 name: Build Documentation
 
-# TODO : Uncomment this before merging to master branch
-# on:
-#   repository_dispatch:
-#     types: [build-doc]
-
 on:
-  pull_request:
-    branches: ["*"]
+  repository_dispatch:
+    types: [build-doc]
 
 jobs:
   buildDoc:
