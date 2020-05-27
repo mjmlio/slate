@@ -26,7 +26,8 @@ jobs:
           node-version: "12"
 
       - name: Build Documentation
-        run: make.sh
+        run: bash make.sh
+
       - name: Deploy Documentation
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
