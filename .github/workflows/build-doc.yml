@@ -1,0 +1,35 @@
+name: Build Documentation
+
+# TODO : Uncomment this before merging to master branch
+# on:
+#   repository_dispatch:
+#     types: [build-doc]
+
+on:
+  pull_request:
+    branches: ["*"]
+
+jobs:
+  buildDoc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.3.1
+
+      - name: Install NodeJS
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12"
+
+      - name: Build Documentation
+        run: make.sh
+      - name: Deploy Documentation
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.documentation_token }}
+          BRANCH: test-gh-pages
+          FOLDER: mjml-doc
