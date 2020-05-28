@@ -1,0 +1,31 @@
+name: Build Documentation
+
+on:
+  repository_dispatch:
+    types: [build-doc]
+
+jobs:
+  buildDoc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.4
+
+      - name: Install NodeJS
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12"
+
+      - name: Build Documentation
+        run: bash make.sh
+
+      - name: Deploy Documentation
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.documentation_token }}
+          BRANCH: gh-pages
+          FOLDER: mjml-doc
