@@ -2709,6 +2709,12 @@ Note that if no width is provided, the image will use the parent column width.</
 <td>n/a</td>
 </tr>
 <tr>
+<td>sizes</td>
+<td>media query &amp; width</td>
+<td>set width based on query</td>
+<td>n/a</td>
+</tr>
+<tr>
 <td>src</td>
 <td>url</td>
 <td>image source</td>
@@ -2995,7 +3001,7 @@ Note that if no width is provided, the image will use the parent column width.</
 <td>padding</td>
 <td>px</td>
 <td>supports up to 4 parameters</td>
-<td>10px 25px</td>
+<td>15px 10px</td>
 </tr>
 <tr>
 <td>padding-bottom</td>
@@ -3104,6 +3110,10 @@ changed to 100%.</p>
   Sections cannot be nested into sections. Also, any content in a section should also be wrapped in a column.
 </aside>
 
+<aside class="warning">
+  Sections cannot be nested into sections. Also, any content in a section should also be wrapped in a column.
+</aside>
+
 <table><thead>
 <tr>
 <th>attribute</th>
@@ -3119,6 +3129,24 @@ changed to 100%.</p>
 <td>n/a</td>
 </tr>
 <tr>
+<td>background-position</td>
+<td>percent / &#39;left&#39;,&#39;top&#39;,... (2 values max)</td>
+<td>css background position (see outlook limitations below)</td>
+<td>top center</td>
+</tr>
+<tr>
+<td>background-position-x</td>
+<td>percent / keyword</td>
+<td>css background position x</td>
+<td>none</td>
+</tr>
+<tr>
+<td>background-position-y</td>
+<td>percent / keyword</td>
+<td>css background position y</td>
+<td>none</td>
+</tr>
+<tr>
 <td>background-repeat</td>
 <td>string</td>
 <td>css background repeat</td>
@@ -3126,7 +3154,7 @@ changed to 100%.</p>
 </tr>
 <tr>
 <td>background-size</td>
-<td>percent/px</td>
+<td>px/percent/&#39;cover&#39;/&#39;contain&#39;</td>
 <td>css background size</td>
 <td>auto</td>
 </tr>
@@ -3227,6 +3255,12 @@ changed to 100%.</p>
 <td>center</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">
+  Limitations of background-images size and position on Outlook desktop :  
+  - If background-size is not specified, no-repeat will be ignored on Outlook.
+  - If the specified size is a single attribute in percent, the height will be auto as in standard css. On outlook, the image will never overflow the element, and it will be shrinked instead of being cropped like on other clients.
+</aside>
 <h2 id='mj-social'>mj-social</h2>
 <p align="center">
   <img src="https://cloud.githubusercontent.com/assets/6558790/12751360/0c78ce48-c9bd-11e5-98ca-4a2ac9e6341b.png" alt="desktop" style="width: 250px;"/>
@@ -3545,10 +3579,22 @@ Note that default icons are transparent, which allows <code>background-color</co
 <td>4px 4px 4px 0</td>
 </tr>
 <tr>
+<td>sizes</td>
+<td>media query &amp; width</td>
+<td>set icon width based on query</td>
+<td>n/a</td>
+</tr>
+<tr>
 <td>src</td>
 <td>url</td>
 <td>image source</td>
 <td>Each social <code>name</code> has its own default</td>
+</tr>
+<tr>
+<td>srcset</td>
+<td>url &amp; width</td>
+<td>set a different image source based on the viewport</td>
+<td>n/a</td>
 </tr>
 <tr>
 <td>target</td>
@@ -4032,7 +4078,7 @@ changed to 100%.</p>
 
 <aside class="notice">
   If you're using a background-url on a `mj-wrapper` then do not add one into a section within the mj-wrapper. Outlook Desktop doesn't support nested VML, so it will most likely break your email.
-  Also, if you use a background-color on mj-wrapper and a background-url on its section/hero child, the background-color will be over the background-image on Outlook. There is no way to keep the vml image over the content and under the wrapper background-color due to z-index being ignored on most tags.
+  Also, if you use a background-color on mj-wrapper and a background-url on its section/hero child, the background-color will be over the background-image on Outlook desktop. There is no way to keep the vml image under the content and over the wrapper's background-color due to z-index being ignored on most tags.
 </aside>
 
 <table><thead>
@@ -4050,6 +4096,24 @@ changed to 100%.</p>
 <td>n/a</td>
 </tr>
 <tr>
+<td>background-position</td>
+<td>percent / &#39;left&#39;,&#39;top&#39;,... (2 values max)</td>
+<td>css background position (see outlook limitations in mj-section doc)</td>
+<td>top center</td>
+</tr>
+<tr>
+<td>background-position-x</td>
+<td>percent / keyword</td>
+<td>css background position x</td>
+<td>none</td>
+</tr>
+<tr>
+<td>background-position-y</td>
+<td>percent / keyword</td>
+<td>css background position y</td>
+<td>none</td>
+</tr>
+<tr>
 <td>background-repeat</td>
 <td>string</td>
 <td>css background repeat</td>
@@ -4057,7 +4121,7 @@ changed to 100%.</p>
 </tr>
 <tr>
 <td>background-size</td>
-<td>percent/px</td>
+<td>px/percent/&#39;cover&#39;/&#39;contain&#39;</td>
 <td>css background size</td>
 <td>auto</td>
 </tr>
