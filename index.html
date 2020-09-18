@@ -390,6 +390,9 @@
                   <li>
                     <a href="#mj-chart" class="toc-h2 toc-link" data-title="mj-chart">mj-chart</a>
                   </li>
+                  <li>
+                    <a href="#mj-qr-code" class="toc-h2 toc-link" data-title="mj-qr-code">mj-qr-code</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -412,6 +415,9 @@
           <li>
             <a href="#tooling" class="toc-h1 toc-link" data-title="tooling">Tooling</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#visual-studio-code" class="toc-h2 toc-link" data-title="visual-studio-code">Visual Studio Code</a>
+                  </li>
                   <li>
                     <a href="#atom-language-plugin" class="toc-h2 toc-link" data-title="atom-language-plugin">Atom language plugin</a>
                   </li>
@@ -1008,7 +1014,8 @@ Here, we&#39;re going to use <code>facebook</code> only.</p>
 </tr>
 </tbody></table>
 <h2 id='mj-include'>mj-include</h2>
-<p>The <code>mjml-core</code> package allows you to include external <code>mjml</code> files to build your email template.</p>
+<p>The <code>mjml-core</code> package allows you to include external <code>mjml</code> files
+  to build your email template.</p>
 <pre class="highlight xml tab-xml"><code><span class="c">&lt;!-- header.mjml --&gt;</span>
 <span class="nt">&lt;mj-section&gt;</span>
   <span class="nt">&lt;mj-column&gt;</span>
@@ -1017,7 +1024,7 @@ Here, we&#39;re going to use <code>facebook</code> only.</p>
 <span class="nt">&lt;/mj-section&gt;</span>
 </code></pre>
 <p>You can wrap your external mjml files inside the default <code>mjml &gt; mj-body</code>
-tags to make it easier to preview outside the main template</p>
+  tags to make it easier to preview outside the main template.</p>
 <pre class="highlight xml tab-xml"><code><span class="c">&lt;!-- main.mjml --&gt;</span>
 <span class="nt">&lt;mjml&gt;</span>
   <span class="nt">&lt;mj-body&gt;</span>
@@ -1025,11 +1032,8 @@ tags to make it easier to preview outside the main template</p>
   <span class="nt">&lt;/mj-body&gt;</span>
 <span class="nt">&lt;/mjml&gt;</span>
 </code></pre>
-<p>The <code>MJML</code> engine will then replace your included files before starting the rendering process</p>
-
-<aside class="notice">
-Note that the file must be a file with a `.mjml` extension
-</aside>
+<p>The <code>MJML</code> engine will then replace your included files before starting
+  the rendering process.</p>
 <h1 id='standard-head-components'>Standard Head components</h1>
 <p>Head components ease your development process, enabling you to import fonts, define default styles or create classes for MJML components among others.</p>
 <h2 id='mj-attributes'>mj-attributes</h2>
@@ -1106,10 +1110,15 @@ Note that the file must be a file with a `.mjml` extension
 </tr>
 </tbody></table>
 <h2 id='mj-font'>mj-font</h2>
-<p>This tag allows you to import fonts if used in your MJML document</p>
+<p>This tag imports fonts.
+The tag has effect only if the template uses the font, too. 
+The <code>href</code> attribute points to a hosted css file; that file contains a <code>@font-face</code> declaration.
+Example: <a href="https://fonts.googleapis.com/css?family=Raleway">https://fonts
+.googleapis.com/css?family=Raleway</a></p>
 <pre class="highlight xml tab-xml"><code> <span class="nt">&lt;mjml&gt;</span>
    <span class="nt">&lt;mj-head&gt;</span>
-     <span class="nt">&lt;mj-font</span> <span class="na">name=</span><span class="s">"Raleway"</span> <span class="na">href=</span><span class="s">"https://fonts.googleapis.com/css?family=Raleway"</span> <span class="nt">/&gt;</span>
+     <span class="nt">&lt;mj-font</span> <span class="na">name=</span><span class="s">"Raleway"</span>
+       <span class="na">href=</span><span class="s">"https://fonts.googleapis.com/css?family=Raleway"</span> <span class="nt">/&gt;</span>
    <span class="nt">&lt;/mj-head&gt;</span>
    <span class="nt">&lt;mj-body&gt;</span>
      <span class="nt">&lt;mj-section&gt;</span>
@@ -1139,7 +1148,7 @@ Note that the file must be a file with a `.mjml` extension
 <tr>
 <td>href</td>
 <td>string</td>
-<td>url of the font</td>
+<td>URL of a hosted CSS file</td>
 <td>n/a</td>
 </tr>
 <tr>
@@ -1231,7 +1240,7 @@ Note that the file must be a file with a `.mjml` extension
   Mjml generates multiple html elements from a single mjml element. For optimal flexibility, the `css-class` will be applied to the most outer html element, so if you want to target a specific sub-element with a css selector, you may need to look at the generated html to see which exact selector you need.
 </aside>
 <h2 id='mj-title'>mj-title</h2>
-<p>This tag allows you to set the title of an MJML document</p>
+<p>Defines the document&#39;s title that browsers show in the title bar or a page&#39;s tab.</p>
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;mjml&gt;</span>
   <span class="nt">&lt;mj-head&gt;</span>
     <span class="nt">&lt;mj-title&gt;</span>Hello MJML<span class="nt">&lt;/mj-title&gt;</span>
@@ -2043,6 +2052,11 @@ Every attribute in `mj-accordion` are applied to `mj-accordion-element` unless y
 <p>Columns enable you to horizontally organize the content within your sections. They must be located under <code>mj-section</code> tags in order to be considered by the engine.
 To be responsive, columns are expressed in terms of percentage.</p>
 
+<aside class="notice">
+  The sum of columns in a section cannot be greater than
+      the width of the parent `mj-section` (or 100%).
+</aside>
+
 <p>Every single column has to contain something because they are responsive containers, and will be vertically stacked on a mobile view. Any standard component, or component that you have defined and registered, can be placed within a column – except <code>mj-column</code> or <code>mj-section</code> elements.</p>
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;mjml&gt;</span>
   <span class="nt">&lt;mj-body&gt;</span>
@@ -2398,6 +2412,23 @@ To be responsive, columns are expressed in terms of percentage.</p>
 </tr>
 </tbody></table>
 <h2 id='mj-hero'>mj-hero</h2>
+<p>This element displays a hero image.
+It behaves like an <code>mj-section</code> with a single <code>mj-column</code>.</p>
+
+<p><code>background-height</code> and <code>background-width</code> attributes are mandatory.</p>
+
+<p>It&#39;s best to use an image with width the same as the <code>mj-body</code> width
+  (<code>width=&quot;600px&quot;</code> by default).
+For better results, it&#39;s best to use an image with height the same or larger
+  than the <code>height</code> of <code>mj-hero</code>.</p>
+
+<p>Use <code>background-color</code> to provide a fallback color
+  in case an email client doesn&#39;t support <code>background-url</code>.</p>
+
+<aside class="notice">
+  The "height" attribute is required only for 'mode="fixed-height"'.
+</aside>
+
 <p>Fixed height  </p>
 
 <p align="center">
@@ -2472,25 +2503,10 @@ To be responsive, columns are expressed in terms of percentage.</p>
 </code></pre>
 <p align="center">
   <a href="https://mjml.io/try-it-live/components/hero/1">
-    <img width="100px" src="https://mjml.io/assets/img/svg/TRYITLIVE.svg" alt="try it live" />
+    <img width="100px" src="https://mjml.io/assets/img/svg/TRYITLIVE.svg"
+      alt="try it live" />
   </a>
 </p>
-
-<aside class="notice">
-  The height attribute is required only for the fixed-height mode
-</aside>
-
-<aside class="notice">
-  <span style="font-weight:bold;">The background position does not work in fluid-height mode on outlook.com</span>
-</aside>
-
-<aside class="notice">
-For better result we encourage you to use a background image width equal to the hero container width and always specify a fallback background color, in case the user email client does not support background images.
-</aside>
-
-<aside class="notice">
-  Please keep the hero container height below the image height. When the hero container height - both in fixed or fluid modes - is greater than the background image height, we can’t guarantee a perfect rendering in all supported email clients
-</aside>
 
 <table><thead>
 <tr>
@@ -2529,12 +2545,6 @@ For better result we encourage you to use a background image width equal to the 
 <td>px</td>
 <td>width of the image used</td>
 <td>parent element width</td>
-</tr>
-<tr>
-<td>css-class</td>
-<td>string</td>
-<td>class name, added to the root HTML element created</td>
-<td>n/a</td>
 </tr>
 <tr>
 <td>height</td>
@@ -3730,18 +3740,6 @@ Note that default icons are transparent, which allows <code>background-color</co
 <td>top offset</td>
 <td>n/a</td>
 </tr>
-<tr>
-<td>vertical-align</td>
-<td>string</td>
-<td>vertical alignment</td>
-<td>middle</td>
-</tr>
-<tr>
-<td>width</td>
-<td>px</td>
-<td>spacer width</td>
-<td>n/a</td>
-</tr>
 </tbody></table>
 <h2 id='mj-table'>mj-table</h2>
 <p>This tag allows you to display table and filled it with data. It only accepts plain HTML.</p>
@@ -3917,7 +3915,7 @@ Note that default icons are transparent, which allows <code>background-color</co
 </p>
 
 <aside class="notice">
-  `MjText` can contain any HTML tag with any attributes. Don't forget to encode special characters to avoid unexpected behaviour from MJML's parser
+  `mj-text` elements can contain any HTML tag with any attributes.
 </aside>
 
 <table><thead>
@@ -4238,6 +4236,14 @@ changed to 100%.</p>
 </p>
 
 <p>Displays charts as images in your email.</p>
+<h2 id='mj-qr-code'>mj-qr-code</h2>
+<p>This component displays QR codes in your email.  It&#39;s available on <a href="https://github.com/typpo/mjml-qr-code">Github</a> and <a href="https://www.npmjs.com/package/mjml-qr-code">NPM</a>.</p>
+
+<p>By default, mj-qr-code uses the open-source QuickChart <a href="https://quickchart.io/">QR code API</a>.</p>
+
+<p align="center">
+  <img src="https://quickchart.io/qr?text=mjml is easy!" alt="mj-qr-code demo" />
+</p>
 <h1 id='validating-mjml'>Validating MJML</h1>
 <p>MJML provides a validation layer that helps you building your email. It can detect if you misplaced or mispelled a MJML component, or if you used any unauthorised attribute on a specific component. It supports 3 levels of validation:</p>
 
@@ -4328,6 +4334,8 @@ Here is working example:</p>
 <span class="p">}))</span>
 </code></pre><h1 id='tooling'>Tooling</h1>
 <p>In order to provide you with the best experience with MJML and help you use it more efficiently, we&#39;ve developed some tools to integrate it seamlessly in your development workflow:</p>
+<h2 id='visual-studio-code'>Visual Studio Code</h2>
+<p><a href="https://code.visualstudio.com/">Visual Studio Code</a> is a free code editor made by <a href="https://www.microsoft.com/">Microsoft</a>. We recommend this package as it is the feature-richest MJML plugin for code editors with live previews, syntax highlighting and linting as well as export features including HTML and screenshots. It is available <a href="https://github.com/mjmlio/vscode-mjml">on Github</a> and through the <a href="https://marketplace.visualstudio.com/items?itemName=mjmlio.vscode-mjml">Visual Studio Marketplace</a>.</p>
 <h2 id='atom-language-plugin'>Atom language plugin</h2>
 <p><a href="https://atom.io">Atom</a> is a powerful text editor originally released by <a href="https://github.com">Github</a>. This package provides autocompletion and syntax highlighting for MJML. It is available <a href="https://github.com/mjmlio/language-mjml">on Github</a> and through the <a href="https://atom.io/packages/language-mjml">Atom Package Manager (APM)</a>.</p>
 <h2 id='atom-linter'>Atom linter</h2>
