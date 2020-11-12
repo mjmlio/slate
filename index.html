@@ -321,6 +321,9 @@
                     <a href="#mj-font" class="toc-h2 toc-link" data-title="mj-font">mj-font</a>
                   </li>
                   <li>
+                    <a href="#mj-html-attributes" class="toc-h2 toc-link" data-title="mj-html-attributes">mj-html-attributes</a>
+                  </li>
+                  <li>
                     <a href="#mj-preview" class="toc-h2 toc-link" data-title="mj-preview">mj-preview</a>
                   </li>
                   <li>
@@ -1158,6 +1161,39 @@ Example: <a href="https://fonts.googleapis.com/css?family=Raleway">https://fonts
 <td>n/a</td>
 </tr>
 </tbody></table>
+<h2 id='mj-html-attributes'>mj-html-attributes</h2>
+<p>This tag allows you to add custom attributes on any html tag of the generated html, using css selectors.
+It&#39;s not needed for most email creations, but can be useful in some cases, i.e. editable templates.</p>
+<pre class="highlight xml tab-xml"><code><span class="nt">&lt;mjml&gt;</span>
+  <span class="nt">&lt;mj-head&gt;</span>
+    <span class="nt">&lt;mj-html-attributes&gt;</span>
+      <span class="nt">&lt;mj-selector</span> <span class="na">path=</span><span class="s">".custom div"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;mj-html-attribute</span> <span class="na">name=</span><span class="s">"data-id"</span><span class="nt">&gt;</span>42<span class="nt">&lt;/mj-html-attribute&gt;</span>
+      <span class="nt">&lt;/mj-selector&gt;</span>
+    <span class="nt">&lt;/mj-html-attributes&gt;</span>
+  <span class="nt">&lt;/mj-head&gt;</span>
+  <span class="nt">&lt;mj-body&gt;</span>
+    <span class="nt">&lt;mj-section&gt;</span>
+      <span class="nt">&lt;mj-column&gt;</span>
+        <span class="nt">&lt;mj-text</span> <span class="na">css-class=</span><span class="s">"custom"</span><span class="nt">&gt;</span>
+          Hello World!
+        <span class="nt">&lt;/mj-text&gt;</span>
+      <span class="nt">&lt;/mj-column&gt;</span>
+    <span class="nt">&lt;/mj-section&gt;</span>
+  <span class="nt">&lt;/mj-body&gt;</span>
+<span class="nt">&lt;/mjml&gt;</span>
+</code></pre>
+<p>In the generated html, a mj-text becomes a <code>td</code>, and a <code>div</code> inside this <code>td</code>. In this example, the <code>td</code> will have the <code>class=&quot;custom&quot;</code>. Using the css selector <code>path=&quot;.custom div&quot;</code>, the <code>div</code> inside the <code>td</code> will get the attribute <code>data-id=&quot;42&quot;</code>.</p>
+
+<p>To use this component, you will likely have to look at the generated html to see where exactly are the <code>css-class</code> applied, to know which css selector you need to use to add your custom attribute on the right html tag.</p>
+
+<p>You can use multiple <code>mj-selector</code> inside a <code>mj-html-attributes</code>, and multiple <code>mj-html-attribute</code> inside a <code>mj-selector</code>.</p>
+
+<p align="center">
+  <a href="https://mjml.io/try-it-live/components/head-html-attributes">
+    <img width="100px" src="https://mjml.io/assets/img/svg/TRYITLIVE.svg" alt="try it live" />
+  </a>
+</p>
 <h2 id='mj-preview'>mj-preview</h2>
 <p>This tag allows you to set the preview that will be displayed in the inbox of the recipient.</p>
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;mjml&gt;</span>
@@ -1672,6 +1708,11 @@ Every attribute in `mj-accordion` are applied to `mj-accordion-element` unless y
 </p>
 
 <p>Displays a customizable button.</p>
+
+<aside class="notice">
+  The `mj-button` won't be fully clickable because of client support.
+  See discussion at [Issue #359](https://github.com/mjmlio/mjml/issues/359).
+</aside>
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;mjml&gt;</span>
   <span class="nt">&lt;mj-body&gt;</span>
     <span class="nt">&lt;mj-section&gt;</span>
@@ -2447,7 +2488,7 @@ For better results, it&#39;s best to use an image with height the same or larger
   The "height" attribute is required only for 'mode="fixed-height"'.
 </aside>
 
-<p>Fixed height  </p>
+<p>Fixed height</p>
 
 <p align="center">
   <img src="https://cloud.githubusercontent.com/assets/1830348/15354833/bfe7faaa-1cef-11e6-8d38-15e8951b6636.png"
@@ -2563,6 +2604,12 @@ For better results, it&#39;s best to use an image with height the same or larger
 <td>px</td>
 <td>width of the image used</td>
 <td>parent element width</td>
+</tr>
+<tr>
+<td>border-radius</td>
+<td>px</td>
+<td>border radius</td>
+<td>n/a</td>
 </tr>
 <tr>
 <td>height</td>
@@ -2698,6 +2745,12 @@ Note that if no width is provided, the image will use the parent column width.</
 <td>href</td>
 <td>url</td>
 <td>link to redirect to on click</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>specify the link name attribute</td>
 <td>n/a</td>
 </tr>
 <tr>
@@ -3625,6 +3678,12 @@ Note that default icons are transparent, which allows <code>background-color</co
 <td>n/a</td>
 </tr>
 <tr>
+<td>rel</td>
+<td>string</td>
+<td>specify the rel attribute for the link</td>
+<td>n/a</td>
+</tr>
+<tr>
 <td>target</td>
 <td>string</td>
 <td>link target</td>
@@ -4365,7 +4424,7 @@ Here is working example:</p>
 <h2 id='contribute-to-the-mjml-ecosystem'>Contribute to the MJML ecosystem</h2>
 <p>The MJML ecosystem is still young and we&#39;re also counting on your help to help us make it grow and provide its community with even more awesome tools, always aiming to making development with MJML an efficient and fun process!</p>
 
-<p>Getting involved is really easy and our <a href="https://github.com/mjmlio/mjml/projects/1">roadmap is open</a>. If you want to contribute, feel free to <a href="https://github.com/mjmlio/mjml/issues">open an issue</a> or <a href="https://github.com/mjmlio/mjml/pulls">submit a pull-request</a>!</p>
+<p>Getting involved is really easy. If you want to contribute, feel free to <a href="https://github.com/mjmlio/mjml/issues">open an issue</a> or <a href="https://github.com/mjmlio/mjml/pulls">submit a pull-request</a>!</p>
 <h1 id='drag-and-drop-interface'>Drag-and-drop interface</h1>
 <p>Would you rather use a friendly drag-and-drop interface rather than coding? <a href="https://www.mailjet.com/demo/">Try Passport</a>, the email builder based on MJML!</p>
 
