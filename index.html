@@ -1029,9 +1029,20 @@ Here, we&#39;re going to use <code>facebook</code> only.</p>
   <span class="nt">&lt;/mj-body&gt;</span>
 <span class="nt">&lt;/mjml&gt;</span>
 </code></pre>
-<p>The <code>MJML</code> engine will then replace your included files before starting
-  the rendering process.</p>
-<h1 id='standard-head-components'>Standard Head components</h1>
+<p>The <code>MJML</code> engine will then replace your included files before starting the rendering process.</p>
+<h3 id='other-file-types'>Other file types</h3>
+<p>You can include external <code>css</code> files. They will be inserted the same way as when using a <code>mj-style</code>.<br>
+You need to specify that you&#39;re including a css file using the <code>type=&quot;css&quot;</code> attribute.<br>
+If you want the css to be inlined, you can use the <code>css-inline=&quot;inline&quot;</code> attribute.</p>
+<pre class="highlight xml tab-xml"><code><span class="c">&lt;!-- main.mjml --&gt;</span>
+  <span class="nt">&lt;mj-include</span> <span class="na">path=</span><span class="s">"./styles.css"</span> <span class="na">type=</span><span class="s">"css"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;mj-include</span> <span class="na">path=</span><span class="s">"./inline-styles.css"</span> <span class="na">type=</span><span class="s">"css"</span> <span class="na">css-inline=</span><span class="s">"inline"</span> <span class="nt">/&gt;</span>
+</code></pre>
+<p>You can also include external <code>html</code> files. They will be inserted the same way as when using a <code>mj-raw</code>.<br>
+You need to specify that you&#39;re including a html file using the <code>type=&quot;html&quot;</code> attribute.  </p>
+<pre class="highlight xml tab-xml"><code><span class="c">&lt;!-- main.mjml --&gt;</span>
+  <span class="nt">&lt;mj-include</span> <span class="na">path=</span><span class="s">"./partial.html"</span> <span class="na">type=</span><span class="s">"html"</span> <span class="nt">/&gt;</span>
+</code></pre><h1 id='standard-head-components'>Standard Head components</h1>
 <p>Head components ease your development process, enabling you to import fonts, define default styles or create classes for MJML components among others.</p>
 <h2 id='mj-attributes'>mj-attributes</h2>
 <p>This tag allows you to modify default attributes on a <code>mj-tag</code> and add <code>mj-class</code> to them.</p>
