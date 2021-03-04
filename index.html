@@ -341,6 +341,9 @@
                     <a href="#mj-accordion" class="toc-h2 toc-link" data-title="mj-accordion">mj-accordion</a>
                   </li>
                   <li>
+                    <a href="#mj-button" class="toc-h2 toc-link" data-title="mj-button">mj-button</a>
+                  </li>
+                  <li>
                     <a href="#mj-carousel" class="toc-h2 toc-link" data-title="mj-carousel">mj-carousel</a>
                   </li>
                   <li>
@@ -1347,92 +1350,372 @@ It&#39;s not needed for most email creations, but can be useful in some cases, i
   <a href="https://mjml.io/try-it-live/components/accordion">
     <img width="100px" src="https://mjml.io/assets/img/svg/TRYITLIVE.svg" alt="sexy" />
   </a>
+</p>
 
-
-attribute | unit | description | default value
-----------|------|-------------|---------------
-border | string | CSS border format | none
-container-background-color | n/a | background-color of the cell | n/a,
-css-class | string | class name, added to the root HTML element created | n/a
-font-family | n/a | font | Ubuntu, Helvetica, Arial, sans-serif
-icon-align | n/a | icon alignment | middle
-icon-height | px | icon width | 32px
-icon-position | n/a | display icon left or right | right
-icon-unwrapped-alt | n/a | alt text when accordion is unwrapped | -
-icon-unwrapped-url | n/a | icon when accordion is unwrapped | https://i.imgur.com/w4uTygT.png
-icon-width | px | icon height | 32px
-icon-wrapped-alt | n/a | alt text when accordion is wrapped | +
-icon-wrapped-url | n/a | icon when accordion is wrapped | https://i.imgur.com/bIXv1bk.png
-padding | px | padding | 10px 25px
-padding-bottom | px | padding bottom | n/a
-padding-left | px | padding left | n/a
-padding-right | px | padding right | n/a
-padding-top | px | padding top | n/a
-
-### mj-accordion-element
-
-Creates an accordion title/text pair.
-An accordion can have any number of these pairs.
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>unit</th>
+<th>description</th>
+<th>default value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>border</td>
+<td>string</td>
+<td>CSS border format</td>
+<td>none</td>
+</tr>
+<tr>
+<td>container-background-color</td>
+<td>n/a</td>
+<td>background-color of the cell</td>
+<td>n/a,</td>
+</tr>
+<tr>
+<td>css-class</td>
+<td>string</td>
+<td>class name, added to the root HTML element created</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>font-family</td>
+<td>n/a</td>
+<td>font</td>
+<td>Ubuntu, Helvetica, Arial, sans-serif</td>
+</tr>
+<tr>
+<td>icon-align</td>
+<td>n/a</td>
+<td>icon alignment</td>
+<td>middle</td>
+</tr>
+<tr>
+<td>icon-height</td>
+<td>px</td>
+<td>icon width</td>
+<td>32px</td>
+</tr>
+<tr>
+<td>icon-position</td>
+<td>n/a</td>
+<td>display icon left or right</td>
+<td>right</td>
+</tr>
+<tr>
+<td>icon-unwrapped-alt</td>
+<td>n/a</td>
+<td>alt text when accordion is unwrapped</td>
+<td>-</td>
+</tr>
+<tr>
+<td>icon-unwrapped-url</td>
+<td>n/a</td>
+<td>icon when accordion is unwrapped</td>
+<td>https://i.imgur.com/w4uTygT.png</td>
+</tr>
+<tr>
+<td>icon-width</td>
+<td>px</td>
+<td>icon height</td>
+<td>32px</td>
+</tr>
+<tr>
+<td>icon-wrapped-alt</td>
+<td>n/a</td>
+<td>alt text when accordion is wrapped</td>
+<td>+</td>
+</tr>
+<tr>
+<td>icon-wrapped-url</td>
+<td>n/a</td>
+<td>icon when accordion is wrapped</td>
+<td>https://i.imgur.com/bIXv1bk.png</td>
+</tr>
+<tr>
+<td>padding</td>
+<td>px</td>
+<td>padding</td>
+<td>10px 25px</td>
+</tr>
+<tr>
+<td>padding-bottom</td>
+<td>px</td>
+<td>padding bottom</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>padding-left</td>
+<td>px</td>
+<td>padding left</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>padding-right</td>
+<td>px</td>
+<td>padding right</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>padding-top</td>
+<td>px</td>
+<td>padding top</td>
+<td>n/a</td>
+</tr>
+</tbody></table>
+<h3 id='mj-accordion-element'>mj-accordion-element</h3>
+<p>Creates an accordion title/text pair.
+An accordion can have any number of these pairs.</p>
 
 <aside class="notice">
 Inheritance applies between attributes supported in both `mj-accordion` and 
 `mj-accordion-element` unless `mj-accordion-element` overrides.
 </aside>
 
-attribute | unit | description | default value
-----------|------|-------------|---------------
-background-color | n/a | background color | n/a
-border | n/a | border | affects each horizontal border in the accordion except the top one
-css-class | string | class name, added to the root HTML element created | n/a
-font-family | n/a | font | Ubuntu, Helvetica, Arial, sans-serif
-icon-align | n/a | icon alignment | middle
-icon-height | n/a | icon width | 32px
-icon-position | n/a | display icon left or right | right
-icon-unwrapped-alt | n/a | alt text when accordion is unwrapped | -
-icon-unwrapped-url | n/a | icon when accordion is unwrapped | https://i.imgur.com/w4uTygT.png
-icon-width | n/a | icon height | 32px
-icon-wrapped-alt | n/a | alt text when accordion is wrapped | +
-icon-wrapped-url | n/a | icon when accordion is wrapped | https://i.imgur.com/bIXv1bk.png
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>unit</th>
+<th>description</th>
+<th>default value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>background-color</td>
+<td>n/a</td>
+<td>background color</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>border</td>
+<td>n/a</td>
+<td>border</td>
+<td>affects each horizontal border in the accordion except the top one</td>
+</tr>
+<tr>
+<td>css-class</td>
+<td>string</td>
+<td>class name, added to the root HTML element created</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>font-family</td>
+<td>n/a</td>
+<td>font</td>
+<td>Ubuntu, Helvetica, Arial, sans-serif</td>
+</tr>
+<tr>
+<td>icon-align</td>
+<td>n/a</td>
+<td>icon alignment</td>
+<td>middle</td>
+</tr>
+<tr>
+<td>icon-height</td>
+<td>n/a</td>
+<td>icon width</td>
+<td>32px</td>
+</tr>
+<tr>
+<td>icon-position</td>
+<td>n/a</td>
+<td>display icon left or right</td>
+<td>right</td>
+</tr>
+<tr>
+<td>icon-unwrapped-alt</td>
+<td>n/a</td>
+<td>alt text when accordion is unwrapped</td>
+<td>-</td>
+</tr>
+<tr>
+<td>icon-unwrapped-url</td>
+<td>n/a</td>
+<td>icon when accordion is unwrapped</td>
+<td>https://i.imgur.com/w4uTygT.png</td>
+</tr>
+<tr>
+<td>icon-width</td>
+<td>n/a</td>
+<td>icon height</td>
+<td>32px</td>
+</tr>
+<tr>
+<td>icon-wrapped-alt</td>
+<td>n/a</td>
+<td>alt text when accordion is wrapped</td>
+<td>+</td>
+</tr>
+<tr>
+<td>icon-wrapped-url</td>
+<td>n/a</td>
+<td>icon when accordion is wrapped</td>
+<td>https://i.imgur.com/bIXv1bk.png</td>
+</tr>
+</tbody></table>
+<h3 id='mj-accordion-title'>mj-accordion-title</h3>
+<p>The title in a title/text pair.</p>
 
-### mj-accordion-title
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>unit</th>
+<th>description</th>
+<th>default value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>background-color</td>
+<td>n/a</td>
+<td>background color</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>color</td>
+<td>n/a</td>
+<td>text color</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>css-class</td>
+<td>string</td>
+<td>class name, added to the root HTML element created</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>font-family</td>
+<td>n/a</td>
+<td>font family</td>
+<td>Ubuntu, Helvetica, Arial, sans-serif</td>
+</tr>
+<tr>
+<td>font-size</td>
+<td>px</td>
+<td>font size</td>
+<td>13px</td>
+</tr>
+<tr>
+<td>padding</td>
+<td>px</td>
+<td>padding</td>
+<td>16px</td>
+</tr>
+<tr>
+<td>padding-bottom</td>
+<td>px</td>
+<td>padding bottom</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>padding-left</td>
+<td>px</td>
+<td>padding left</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>padding-right</td>
+<td>px</td>
+<td>padding right</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>padding-top</td>
+<td>px</td>
+<td>padding top</td>
+<td>n/a</td>
+</tr>
+</tbody></table>
+<h3 id='mj-accordion-text'>mj-accordion-text</h3>
+<p>The text in a title/text pair.</p>
 
-The title in a title/text pair.
-
-attribute | unit | description | default value
-----------|------|-------------|---------------
-background-color | n/a | background color | n/a
-color | n/a | text color | n/a
-css-class | string | class name, added to the root HTML element created | n/a
-font-family | n/a | font family | Ubuntu, Helvetica, Arial, sans-serif
-font-size | px | font size | 13px
-padding | px | padding | 16px
-padding-bottom | px | padding bottom | n/a
-padding-left | px | padding left | n/a
-padding-right | px | padding right | n/a
-padding-top | px | padding top | n/a
-
-### mj-accordion-text
-
-The text in a title/text pair.
-
-attribute | unit | description | default value
-----------|------|-------------|---------------
-background-color | n/a | background color | n/a
-color | n/a | text color | n/a
-css-class | string | class name, added to the root HTML element created | n/a
-font-family | n/a | font family | Ubuntu, Helvetica, Arial, sans-serif
-font-size | px | font size | 13px
-font-weight | number | text thickness | n/a
-letter-spacing | px,em | letter spacing | none
-line-height | px | space between the lines | 1
-padding | px | padding | 16px
-padding-bottom | px | padding bottom | n/a
-padding-left | px | padding left | n/a
-padding-right | px | padding right | n/a
-padding-top | px | padding top | n/a
-
-## mj-button
-
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>unit</th>
+<th>description</th>
+<th>default value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>background-color</td>
+<td>n/a</td>
+<td>background color</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>color</td>
+<td>n/a</td>
+<td>text color</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>css-class</td>
+<td>string</td>
+<td>class name, added to the root HTML element created</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>font-family</td>
+<td>n/a</td>
+<td>font family</td>
+<td>Ubuntu, Helvetica, Arial, sans-serif</td>
+</tr>
+<tr>
+<td>font-size</td>
+<td>px</td>
+<td>font size</td>
+<td>13px</td>
+</tr>
+<tr>
+<td>font-weight</td>
+<td>number</td>
+<td>text thickness</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>letter-spacing</td>
+<td>px,em</td>
+<td>letter spacing</td>
+<td>none</td>
+</tr>
+<tr>
+<td>line-height</td>
+<td>px</td>
+<td>space between the lines</td>
+<td>1</td>
+</tr>
+<tr>
+<td>padding</td>
+<td>px</td>
+<td>padding</td>
+<td>16px</td>
+</tr>
+<tr>
+<td>padding-bottom</td>
+<td>px</td>
+<td>padding bottom</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>padding-left</td>
+<td>px</td>
+<td>padding left</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>padding-right</td>
+<td>px</td>
+<td>padding right</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>padding-top</td>
+<td>px</td>
+<td>padding top</td>
+<td>n/a</td>
+</tr>
+</tbody></table>
+<h2 id='mj-button'>mj-button</h2>
 <p align="center">
   <img src="https://cloud.githubusercontent.com/assets/6558790/12751346/fd993192-c9bc-11e5-8c91-37d616bf5874.png" alt="desktop" width="150px" />
 </p>
