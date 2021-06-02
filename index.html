@@ -1051,7 +1051,14 @@ You need to specify that you&#39;re including a html file using the <code>type=&
 </code></pre><h1 id='standard-head-components'>Standard Head components</h1>
 <p>Head components ease your development process, enabling you to import fonts, define default styles or create classes for MJML components among others.</p>
 <h2 id='mj-attributes'>mj-attributes</h2>
-<p>This tag allows you to modify default attributes on a <code>mj-tag</code> and add <code>mj-class</code> to them.</p>
+<p>Inside <code>mj-attributes</code>, a tag citing one MJML component (like <code>mj-text</code>;
+see example) overrides default settings for listed MJML attributes
+on the one component.</p>
+
+<p>An <code>mj-all</code> is like the above, but affects all MJML components via the one tag.</p>
+
+<p><code>mj-class</code> tags create a named group of MJML attributes you can apply to MJML
+components. To apply them, use <code>mj-class=&quot;&lt;name&gt;&quot;</code>.</p>
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;mjml&gt;</span>
   <span class="nt">&lt;mj-head&gt;</span>
     <span class="nt">&lt;mj-attributes&gt;</span>
@@ -1072,18 +1079,20 @@ You need to specify that you&#39;re including a html file using the <code>type=&
   <span class="nt">&lt;/mj-body&gt;</span>
 <span class="nt">&lt;/mjml&gt;</span>
 </code></pre>
-<p align="center">
+<p style="text-align: center;" >
   <a href="https://mjml.io/try-it-live/components/head-attributes">
     <img width="100px" src="https://mjml.io/assets/img/svg/TRYITLIVE.svg" alt="try it live" />
   </a>
 </p>
 
 <aside class="notice">
-  You can use mj-all to set default attributes for every components inside your MJML document
-</aside>
-
-<aside class="notice">
-  Note that the apply order of attributes is: inline attributes, then classes, then default mj-attributes and then defaultMJMLDefinition
+  In the following list, MJML applies only the first MJML attributes found:
+  <ul>
+    <li>inline MJML attributes,</li>
+    <li>the entry for the same MJML component (like, "mj-text") in "mj-attributes",</li>
+    <li>"mj-all" in "mj-attributes", and</li>
+    <li>default MJML values.</li>
+  </ul>
 </aside>
 <h2 id='mj-breakpoint'>mj-breakpoint</h2>
 <p>This tag allows you to control on which breakpoint the layout should go desktop/mobile.</p>
