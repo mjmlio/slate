@@ -399,6 +399,17 @@
               </ul>
           </li>
           <li>
+            <a href="#mjml-msobutton" class="toc-h1 toc-link" data-title="mjml-msobutton">mjml-msobutton</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#usage-2" class="toc-h2 toc-link" data-title="usage">Usage</a>
+                  </li>
+                  <li>
+                    <a href="#problems-that-you-should-know" class="toc-h2 toc-link" data-title="problems-that-you-should-know">Problems that you should know</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#validating-mjml" class="toc-h1 toc-link" data-title="validating-mjml">Validating MJML</a>
               <ul class="toc-list-h2">
                   <li>
@@ -4383,6 +4394,57 @@ changed to 100%.</p>
 <p style="text-align: center;" >
   <img src="https://quickchart.io/qr?text=mjml is easy!" alt="mj-qr-code demo" />
 </p>
+<h1 id='mjml-msobutton'>mjml-msobutton</h1>
+<p>Button that also use the <a href="https://docs.microsoft.com/en-us/windows/win32/vml/shape-element--vml">VML</a> solution for radius.</p>
+
+<p>This component can be usefull if you want to try an outlook proof adventure.
+The msobutton has exactly the same behaviours of the classic button but add three more attributes.</p>
+
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>unit</th>
+<th>description</th>
+<th>default value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>mso-proof</td>
+<td>boolean</td>
+<td>Active the bulletproof mode</td>
+<td>false</td>
+</tr>
+<tr>
+<td>mso-width</td>
+<td>px</td>
+<td>The width of the VML solution</td>
+<td>200px</td>
+</tr>
+<tr>
+<td>mso-height</td>
+<td>px</td>
+<td>The height of the VML solution</td>
+<td>40px</td>
+</tr>
+</tbody></table>
+
+<p>More important, these 3 new attributes allow mjml to generate a bulletproof button with radius and stroke with the same mathod that you can see <a href="https://buttons.cm/">here</a>, including the alignment.</p>
+
+<p>It&#39;s available on <a href="https://github.com/adrien-zinger/mjml-mso-button">Github</a> and <a href="https://www.npmjs.com/package/mjml-msobutton">NPM</a>.</p>
+<h2 id='usage-2'>Usage</h2>
+<p>Use it like an mj-button:
+<code>html
+&lt;mj-msobutton mso-proof=&quot;true&quot;&gt;Click !&lt;/mj-msobutton&gt;
+</code></p>
+<h2 id='problems-that-you-should-know'>Problems that you should know</h2>
+<p>This outlook solution isn&#39;t really bulletproof.
+1. This cannot be used with an image in background
+2. It creates a duplication of code in the HTML
+3. The width and the height cannot be used with the <em>auto</em> value</p>
+
+<blockquote>
+<p>Sample project on github <a href="https://github.com/adrien-zinger/mjml-msobutton-sample">here</a></p>
+</blockquote>
 <h1 id='validating-mjml'>Validating MJML</h1>
 <p>MJML provides a validation layer that helps you building your email. It can detect if you misplaced or mispelled a MJML component, or if you used any unauthorised attribute on a specific component. It supports 3 levels of validation:</p>
 
