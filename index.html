@@ -482,10 +482,12 @@
   <a href="https://mjml.io/try-it-live/intro"><img width="100px" src="https://mjml.io/assets/img/svg/TRYITLIVE.svg" alt="try it live" /></a>
 </p>
 <h1 id='installation'>Installation</h1>
-<p>You can install MJML with NPM to use it with NodeJS or the Command Line Interface. If you&#39;re not sure what those are, head over to <a href="#usage">Usage</a> for other ways to use MJML.</p>
+<p>You can install MJML with NPM to use it with NodeJS or the Command Line Interface. If you&#39;re not sure what those are,
+head over to <a href="#usage">Usage</a> for other ways to use MJML.</p>
 <pre class="highlight shell"><code>npm install mjml
 </code></pre><h1 id='development'>Development</h1>
-<p>To work on MJML, make changes and create merge requests, download and install <a href="https://yarnpkg.com/lang/en/docs/install/">yarn</a> for easy development.</p>
+<p>To work on MJML, make changes and create merge requests, download and
+install <a href="https://yarnpkg.com/lang/en/docs/install/">yarn</a> for easy development.</p>
 <pre class="highlight shell"><code>git clone https://github.com/mjmlio/mjml.git <span class="o">&amp;&amp;</span> <span class="nb">cd </span>mjml
 yarn
 yarn build
@@ -500,11 +502,14 @@ yarn build
 
 <p><br></p>
 <h2 id='applications-and-plugins'>Applications and plugins</h2>
-<p>MJML comes with an ecosystem of tools and plugins, check out:<br>
-- The <a href="https://mjmlio.github.io/mjml-app/">MJML App</a> (MJML is included)<br>
-- <a href="https://github.com/mjmlio/vscode-mjml">Visual Studio Code plugin</a> (MJML is included)<br>
-- <a href="https://atom.io/users/mjmlio">Atom plugin</a> (MJML needs to be installed separately)<br>
-- <a href="https://packagecontrol.io/packages/MJML-syntax">Sublime Text plugin</a> (MJML needs to be installed separately)  </p>
+<p>MJML comes with an ecosystem of tools and plugins, check out:</p>
+
+<ul>
+<li>The <a href="https://mjmlio.github.io/mjml-app/">MJML App</a> (MJML is included)</li>
+<li><a href="https://github.com/mjmlio/vscode-mjml">Visual Studio Code plugin</a> (MJML is included)</li>
+<li><a href="https://atom.io/users/mjmlio">Atom plugin</a> (MJML needs to be installed separately)</li>
+<li><a href="https://packagecontrol.io/packages/MJML-syntax">Sublime Text plugin</a> (MJML needs to be installed separately)</li>
+</ul>
 
 <p>For more information, check the <a href="#tooling">Tooling</a> section.<br>
 For more tools, check the <a href="https://mjml.io/community">Community</a> page.</p>
@@ -537,6 +542,11 @@ For more tools, check the <a href="https://mjml.io/community">Community</a> page
 <td><code>mjml [input] -s</code></td>
 <td>Writes the output to <code>stdout</code></td>
 <td>NA</td>
+</tr>
+<tr>
+<td><code>mjml [input] -s --noStdoutFileComment</code></td>
+<td>Writes the output to <code>stdout</code> without an comment containing the source file in the first line</td>
+<td>the outputs first line contains the file in the format <code>&lt;!-- FILE: {filename} --&gt;</code></td>
 </tr>
 <tr>
 <td><code>mjml -w [input]</code></td>
@@ -598,7 +608,6 @@ For more tools, check the <a href="https://mjml.io/community">Community</a> page
   &lt;/mjml&gt;
 `</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span>
 
-
 <span class="cm">/*
   Print the responsive HTML generated and MJML errors if any
 */</span>
@@ -658,25 +667,26 @@ For more tools, check the <a href="https://mjml.io/community">Community</a> page
 </tr>
 <tr>
 <td>useMjmlConfigOptions</td>
+<td>boolean</td>
 <td>Allows to use the <code>config</code> attribute from <code>.mjmlconfig</code> file</td>
 <td>false</td>
-<td></td>
 </tr>
 <tr>
 <td>minifyOptions</td>
+<td>object</td>
 <td>Options for html minifier, see <a href="https://github.com/mjmlio/mjml/blob/master/packages/mjml-cli/README.md">mjml-cli documentation</a> for more info</td>
-<td>{&quot;collapseWhitespace&quot;: true, &quot;minifyCSS&quot;: false, &quot;removeEmptyAttributes&quot;: true}</td>
-<td></td>
+<td><code>{&quot;collapseWhitespace&quot;: true, &quot;minifyCSS&quot;: false, &quot;removeEmptyAttributes&quot;: true}</code></td>
 </tr>
 <tr>
 <td>juicePreserveTags</td>
-<td>optional setting when inlining css, see <a href="https://github.com/mjmlio/mjml/blob/master/packages/mjml-cli/README.md">mjml-cli documentation</a> for more info</td>
+<td>boolean</td>
+<td>Optional setting when inlining css, see <a href="https://github.com/mjmlio/mjml/blob/master/packages/mjml-cli/README.md">mjml-cli documentation</a> for more info</td>
 <td>NA</td>
-<td></td>
 </tr>
 </tbody></table>
 <h2 id='api'>API</h2>
-<p>A free-to-use MJML API is available to make it easy to integrate MJML in your application. Head over <a href="https://mjml.io/api">here</a> to learn more about the API.</p>
+<p>A free-to-use MJML API is available to make it easy to integrate MJML in your application. Head
+over <a href="https://mjml.io/api">here</a> to learn more about the API.</p>
 <h1 id='getting-started'>Getting Started</h1>
 <p>This is a responsive email</p>
 
