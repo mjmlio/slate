@@ -434,6 +434,9 @@
                     <a href="#sublime-text" class="toc-h2 toc-link" data-title="sublime-text">Sublime Text</a>
                   </li>
                   <li>
+                    <a href="#intellij-idea-plugin-mjml-support" class="toc-h2 toc-link" data-title="intellij-idea-plugin-mjml-support">IntelliJ IDEA Plugin - MJML Support</a>
+                  </li>
+                  <li>
                     <a href="#gulp" class="toc-h2 toc-link" data-title="gulp">Gulp</a>
                   </li>
                   <li>
@@ -4380,12 +4383,12 @@ changed to 100%.</p>
 - Install MJML locally with <code>npm install mjml</code> in a folder
 - Install the community component with <code>npm install {component-name}</code> in the same folder
 - Create a <code>.mjmlconfig</code> file in the same folder with:</p>
-<pre class="highlight plaintext"><code>{
-  "packages": [
-    "component-name/path-to-js-file"
-  ]
-}
-</code></pre>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"packages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"component-name/path-to-js-file"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>Finally, you can now use the component in a MJML file, for example <code>index.mjml</code>, and run MJML locally in your terminal (make sure to be in the folder where you installed MJML and the community component): <code>./node_modules/.bin/mjml index.mjml</code>.</p>
 <h2 id='mj-chart'>mj-chart</h2>
 <p>Thanks to <a href="https://image-charts.com/">image-charts</a> for their contribution with this component. It&#39;s available on <a href="https://github.com/image-charts/mjml-charts">Github</a> and <a href="https://www.npmjs.com/package/mjml-chart">NPM</a>.</p>
@@ -4556,6 +4559,8 @@ Here is working example:</p>
 <p>In addition to the language plugin, a linter is available to highlight errors in MJML. The linter is available <a href="https://github.com/mjmlio/atom-linter-mjml">on Github</a> and through the <a href="https://atom.io/packages/linter-mjml">Atom Package Manager (APM)</a>.</p>
 <h2 id='sublime-text'>Sublime Text</h2>
 <p><a href="https://www.sublimetext.com/">Sublime Text</a> is a powerful text editor. We&#39;re providing you with a package to color MJML tags. It is available <a href="https://github.com/mjmlio/mjml-syntax">on Github</a> and through the <a href="https://packagecontrol.io/packages/MJML-syntax">Sublime Package Control</a>.</p>
+<h2 id='intellij-idea-plugin-mjml-support'>IntelliJ IDEA Plugin - MJML Support</h2>
+<p><a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a> is an IDE developed by JetBrains. The plugin provides you with a (near) realtime preview, auto complete, inline documentation and code analysis. Its available on the <a href="https://plugins.jetbrains.com/plugin/16418-mjml-support">JetBrains Marketplace</a>.</p>
 <h2 id='gulp'>Gulp</h2>
 <p>Gulp is a tool designed to help you automate and enhance your workflow. Our plugin enables you to plug the MJML translation engine into your workflow, helping you to streamline your development workflow. It is available here on <a href="https://github.com/mjmlio/gulp-mjml">Github</a></p>
 <h2 id='contribute-to-the-mjml-ecosystem'>Contribute to the MJML ecosystem</h2>
