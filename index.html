@@ -344,12 +344,6 @@
                     <a href="#mj-button" class="toc-h2 toc-link" data-title="mj-button">mj-button</a>
                   </li>
                   <li>
-                    <a href="#mj-carousel" class="toc-h2 toc-link" data-title="mj-carousel">mj-carousel</a>
-                  </li>
-                  <li>
-                    <a href="#mj-column" class="toc-h2 toc-link" data-title="mj-column">mj-column</a>
-                  </li>
-                  <li>
                     <a href="#mj-divider" class="toc-h2 toc-link" data-title="mj-divider">mj-divider</a>
                   </li>
                   <li>
@@ -365,9 +359,6 @@
                     <a href="#mj-navbar" class="toc-h2 toc-link" data-title="mj-navbar">mj-navbar</a>
                   </li>
                   <li>
-                    <a href="#mj-raw" class="toc-h2 toc-link" data-title="mj-raw">mj-raw</a>
-                  </li>
-                  <li>
                     <a href="#mj-section" class="toc-h2 toc-link" data-title="mj-section">mj-section</a>
                   </li>
                   <li>
@@ -380,10 +371,7 @@
                     <a href="#mj-table" class="toc-h2 toc-link" data-title="mj-table">mj-table</a>
                   </li>
                   <li>
-                    <a href="#mj-text" class="toc-h2 toc-link" data-title="mj-text">mj-text</a>
-                  </li>
-                  <li>
-                    <a href="#mj-wrapper" class="toc-h2 toc-link" data-title="mj-wrapper">mj-wrapper</a>
+                    <a href="#ending-tags" class="toc-h2 toc-link" data-title="ending-tags">Ending tags</a>
                   </li>
               </ul>
           </li>
@@ -1341,6 +1329,10 @@ It&#39;s not needed for most email creations, but can be useful in some cases, i
 </p>
 
 <p><code>mj-accordion</code> is an interactive MJML component to stack content in tabs, so the information is collapsed and only the titles are visible. Readers can interact by clicking on the tabs to reveal the content, providing a great experience on mobile devices where space is scarce.</p>
+
+<aside class="notice">
+  `mj-accordion-text` and `mj-accordion-title` are "ending tags", which means they can contain HTML code which will be left as it is, so they can contain HTML tags with attributes, but they cannot contain other MJML components. More information about ending tags <a href="#ending-tags>in this section</a>.
+</aside>
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;mjml&gt;</span>
   <span class="nt">&lt;mj-head&gt;</span>
     <span class="nt">&lt;mj-attributes&gt;</span>
@@ -1777,6 +1769,10 @@ Inheritance applies between attributes supported in both `mj-accordion` and
   </a>
 </p>
 
+<aside class="notice">
+  `mj-button` is an "ending tag", which means it can contain HTML code which will be left as it is, so it can contain HTML tags with attributes, but it cannot contain other MJML components. More information about ending tags <a href="#ending-tags>in this section</a>.
+</aside>
+
 <table><thead>
 <tr>
 <th>attribute</th>
@@ -2011,6 +2007,10 @@ Inheritance applies between attributes supported in both `mj-accordion` and
     <img width="100px" src="https://mjml.io/assets/img/svg/TRYITLIVE.svg" alt="sexy" />
   </a>
 </p>
+
+<aside class="notice">
+  `mj-carousel-image` is an "ending tag", which means it can contain HTML code which will be left as it is, so it can contain HTML tags with attributes, but it cannot contain other MJML components. More information about ending tags <a href="#ending-tags>in this section</a>.
+</aside>
 
 <table><thead>
 <tr>
@@ -3093,6 +3093,10 @@ Note that if no width is provided, the image will use the parent column width.</
   The mj-navbar-link component must be used inside a mj-navbar component only.
 </aside>
 
+<aside class="notice">
+  `mj-navbar-link` is an "ending tag", which means it can contain HTML code which will be left as it is, so it can contain HTML tags with attributes, but it cannot contain other MJML components. More information about ending tags <a href="#ending-tags>in this section</a>.
+</aside>
+
 <table><thead>
 <tr>
 <th>attribute</th>
@@ -3228,6 +3232,10 @@ If placed inside <code>&lt;mj-head&gt;</code>, its content will be added at the 
 </p>
 
 <p>If you use mj-raw to add templating language, and use the <code>minify</code> option, you might get a <code>Parsing error</code>, especially when using the <code>&lt;</code> character. You can tell the minifier to ignore some content by wrapping it between two <code>&lt;!-- htmlmin:ignore --&gt;</code> tags.</p>
+
+<aside class="notice">
+  `mj-raw` is an "ending tag", which means it can contain HTML code which will be left as it is, so it can contain HTML tags with attributes, but it cannot contain other MJML components. More information about ending tags <a href="#ending-tags>in this section</a>.
+</aside>
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;mjml&gt;</span>
   <span class="nt">&lt;mj-body&gt;</span>
     <span class="nt">&lt;mj-raw&gt;</span>
@@ -3446,6 +3454,10 @@ changed to 100%.</p>
     <img width="100px" src="https://mjml.io/assets/img/svg/TRYITLIVE.svg" alt="try it live" />
   </a>
 </p>
+
+<aside class="notice">
+  `mj-social-element` is an "ending tag", which means it can contain HTML code which will be left as it is, so it can contain HTML tags with attributes, but it cannot contain other MJML components. More information about ending tags <a href="#ending-tags>in this section</a>.
+</aside>
 
 <table><thead>
 <tr>
@@ -3925,6 +3937,10 @@ Note that default icons are transparent, which allows <code>background-color</co
   </a>
 </p>
 
+<aside class="notice">
+  `mj-table` is an "ending tag", which means it can contain HTML code which will be left as it is, so it can contain HTML tags with attributes, but it cannot contain other MJML components. In `mj-table` specifically, you can put anything you would put in a `<table>` element. More information about ending tags <a href="#ending-tags>in this section</a>.
+</aside>
+
 <table><thead>
 <tr>
 <th>attribute</th>
@@ -4065,7 +4081,7 @@ Note that default icons are transparent, which allows <code>background-color</co
 </p>
 
 <aside class="notice">
-  `mj-text` elements can contain any HTML tag with any attributes.
+  `mj-text` is an "ending tag", which means it can contain HTML code which will be left as it is, so it can contain HTML tags with attributes, but it cannot contain other MJML components. More information about ending tags <a href="#ending-tags>in this section</a>.
 </aside>
 
 <table><thead>
@@ -4364,6 +4380,22 @@ changed to 100%.</p>
 <td>center</td>
 </tr>
 </tbody></table>
+<h2 id='ending-tags'>Ending tags</h2>
+<p>Some of the mjml components are &quot;ending tags&quot;. These are mostly the components that will contain text contents, like <code>mj-text</code> or <code>mj-buttons</code>.
+These components can contain not only text, but also any HTML content, which will be completely unprocessed and left as it is. This means you cannot use other MJML components inside them, but you can use any HTML tag, like <code>&lt;img&gt;</code> or <code>&lt;a&gt;</code>.</p>
+
+<p>This has a little downside : The content is not modified at all, this means that the text won&#39;t be escaped, so if you use characters that are used to define html tags in your text, like <code>&lt;</code> or <code>&gt;</code>, you should use the encoded characters <code>&amp;lt;</code> and <code>&amp;lt;</code>. If you don&#39;t, sometimes the browser can be clever enough to understand that you&#39;re not really trying to open/close an html tag, and display the unescaped character as normal text, but this may cause problems in some cases.
+For instance, this will likely cause problems if you use the <code>minify</code> option, <code>mj-html-attributes</code> or an inline <code>mj-style</code>, because these require the html to be re-parsed internally. If you&#39;re just using the <code>minifiy</code> option, and really need to use the <code>&lt; &gt;</code> characters, i.e. for templating language, you can also avoid this problem by wrapping the troublesome content between two <code>&lt;!-- htmlmin:ignore --&gt;</code> tags.</p>
+
+<p>Here is the list of all ending tags :
+- mj-accordion-text
+- mj-accordion-title
+- mj-button
+- mj-navbar-link
+- mj-raw
+- mj-social-element
+- mj-text
+- mj-table</p>
 <h1 id='community-components'>Community components</h1>
 <p>In addition to the standard components available in MJML, our awesome community is contributing by creating their own components.</p>
 
