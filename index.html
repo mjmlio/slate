@@ -344,6 +344,12 @@
                     <a href="#mj-button" class="toc-h2 toc-link" data-title="mj-button">mj-button</a>
                   </li>
                   <li>
+                    <a href="#mj-carousel" class="toc-h2 toc-link" data-title="mj-carousel">mj-carousel</a>
+                  </li>
+                  <li>
+                    <a href="#mj-column" class="toc-h2 toc-link" data-title="mj-column">mj-column</a>
+                  </li>
+                  <li>
                     <a href="#mj-divider" class="toc-h2 toc-link" data-title="mj-divider">mj-divider</a>
                   </li>
                   <li>
@@ -359,6 +365,9 @@
                     <a href="#mj-navbar" class="toc-h2 toc-link" data-title="mj-navbar">mj-navbar</a>
                   </li>
                   <li>
+                    <a href="#mj-raw" class="toc-h2 toc-link" data-title="mj-raw">mj-raw</a>
+                  </li>
+                  <li>
                     <a href="#mj-section" class="toc-h2 toc-link" data-title="mj-section">mj-section</a>
                   </li>
                   <li>
@@ -369,6 +378,12 @@
                   </li>
                   <li>
                     <a href="#mj-table" class="toc-h2 toc-link" data-title="mj-table">mj-table</a>
+                  </li>
+                  <li>
+                    <a href="#mj-text" class="toc-h2 toc-link" data-title="mj-text">mj-text</a>
+                  </li>
+                  <li>
+                    <a href="#mj-wrapper" class="toc-h2 toc-link" data-title="mj-wrapper">mj-wrapper</a>
                   </li>
                   <li>
                     <a href="#ending-tags" class="toc-h2 toc-link" data-title="ending-tags">Ending tags</a>
@@ -1331,7 +1346,7 @@ It&#39;s not needed for most email creations, but can be useful in some cases, i
 <p><code>mj-accordion</code> is an interactive MJML component to stack content in tabs, so the information is collapsed and only the titles are visible. Readers can interact by clicking on the tabs to reveal the content, providing a great experience on mobile devices where space is scarce.</p>
 
 <aside class="notice">
-  `mj-accordion-text` and `mj-accordion-title` are "ending tags", which means they can contain HTML code which will be left as it is, so they can contain HTML tags with attributes, but they cannot contain other MJML components. More information about ending tags <a href="#ending-tags>in this section</a>.
+  `mj-accordion-text` and `mj-accordion-title` are "ending tags", which means they can contain HTML code which will be left as it is, so they can contain HTML tags with attributes, but they cannot contain other MJML components. More information about ending tags <a href="#ending-tags">in this section</a>.
 </aside>
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;mjml&gt;</span>
   <span class="nt">&lt;mj-head&gt;</span>
@@ -1491,7 +1506,7 @@ It&#39;s not needed for most email creations, but can be useful in some cases, i
 An accordion can have any number of these pairs.</p>
 
 <aside class="notice">
-Inheritance applies between attributes supported in both `mj-accordion` and 
+Inheritance applies between attributes supported in both `mj-accordion` and
 `mj-accordion-element` unless `mj-accordion-element` overrides.
 </aside>
 
@@ -1770,7 +1785,7 @@ Inheritance applies between attributes supported in both `mj-accordion` and
 </p>
 
 <aside class="notice">
-  `mj-button` is an "ending tag", which means it can contain HTML code which will be left as it is, so it can contain HTML tags with attributes, but it cannot contain other MJML components. More information about ending tags <a href="#ending-tags>in this section</a>.
+  `mj-button` is an "ending tag", which means it can contain HTML code which will be left as it is, so it can contain HTML tags with attributes, but it cannot contain other MJML components. More information about ending tags <a href="#ending-tags">in this section</a>.
 </aside>
 
 <table><thead>
@@ -2009,7 +2024,7 @@ Inheritance applies between attributes supported in both `mj-accordion` and
 </p>
 
 <aside class="notice">
-  `mj-carousel-image` is an "ending tag", which means it can contain HTML code which will be left as it is, so it can contain HTML tags with attributes, but it cannot contain other MJML components. More information about ending tags <a href="#ending-tags>in this section</a>.
+  `mj-carousel-image` is an "ending tag", which means it can contain HTML code which will be left as it is, so it can contain HTML tags with attributes, but it cannot contain other MJML components. More information about ending tags <a href="#ending-tags">in this section</a>.
 </aside>
 
 <table><thead>
@@ -3094,7 +3109,7 @@ Note that if no width is provided, the image will use the parent column width.</
 </aside>
 
 <aside class="notice">
-  `mj-navbar-link` is an "ending tag", which means it can contain HTML code which will be left as it is, so it can contain HTML tags with attributes, but it cannot contain other MJML components. More information about ending tags <a href="#ending-tags>in this section</a>.
+  `mj-navbar-link` is an "ending tag", which means it can contain HTML code which will be left as it is, so it can contain HTML tags with attributes, but it cannot contain other MJML components. More information about ending tags <a href="#ending-tags">in this section</a>.
 </aside>
 
 <table><thead>
@@ -3234,7 +3249,7 @@ If placed inside <code>&lt;mj-head&gt;</code>, its content will be added at the 
 <p>If you use mj-raw to add templating language, and use the <code>minify</code> option, you might get a <code>Parsing error</code>, especially when using the <code>&lt;</code> character. You can tell the minifier to ignore some content by wrapping it between two <code>&lt;!-- htmlmin:ignore --&gt;</code> tags.</p>
 
 <aside class="notice">
-  `mj-raw` is an "ending tag", which means it can contain HTML code which will be left as it is, so it can contain HTML tags with attributes, but it cannot contain other MJML components. More information about ending tags <a href="#ending-tags>in this section</a>.
+  `mj-raw` is an "ending tag", which means it can contain HTML code which will be left as it is, so it can contain HTML tags with attributes, but it cannot contain other MJML components. More information about ending tags <a href="#ending-tags">in this section</a>.
 </aside>
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;mjml&gt;</span>
   <span class="nt">&lt;mj-body&gt;</span>
@@ -3456,7 +3471,7 @@ changed to 100%.</p>
 </p>
 
 <aside class="notice">
-  `mj-social-element` is an "ending tag", which means it can contain HTML code which will be left as it is, so it can contain HTML tags with attributes, but it cannot contain other MJML components. More information about ending tags <a href="#ending-tags>in this section</a>.
+  `mj-social-element` is an "ending tag", which means it can contain HTML code which will be left as it is, so it can contain HTML tags with attributes, but it cannot contain other MJML components. More information about ending tags <a href="#ending-tags">in this section</a>.
 </aside>
 
 <table><thead>
@@ -3601,7 +3616,7 @@ changed to 100%.</p>
 </tr>
 </tbody></table>
 <h3 id='mj-social-element'>mj-social-element</h3>
-<p>This component enables you to display a given social network inside <code>mj-social</code>.<br>
+<p>This component enables you to display a given social network inside <code>mj-social</code>.
 Note that default icons are transparent, which allows <code>background-color</code> to actually be the icon color.</p>
 
 <table><thead>
@@ -3794,25 +3809,25 @@ Note that default icons are transparent, which allows <code>background-color</co
 </tr>
 </tbody></table>
 
-<p>Supported networks with a share url:<br>
-- facebook<br>
-- twitter<br>
-- google<br>
-- pinterest<br>
-- linkedin<br>
-- tumblr<br>
-- xing  </p>
+<p>Supported networks with a share url:
+- facebook
+- twitter
+- google
+- pinterest
+- linkedin
+- tumblr
+- xing</p>
 
-<p>Without a share url:<br>
-- github<br>
-- instagram<br>
-- web<br>
-- snapchat<br>
-- youtube<br>
-- vimeo<br>
-- medium<br>
-- soundcloud<br>
-- dribbble  </p>
+<p>Without a share url:
+- github
+- instagram
+- web
+- snapchat
+- youtube
+- vimeo
+- medium
+- soundcloud
+- dribbble</p>
 
 <p>When using a network with share url, the <code>href</code> attribute will be inserted in the share url (i.e. <code>https://www.facebook.com/sharer/sharer.php?u=[[URL]]</code>). To keep your <code>href</code> unchanged, add <code>-noshare</code> to the network name. Example :</p>
 
@@ -3938,7 +3953,7 @@ Note that default icons are transparent, which allows <code>background-color</co
 </p>
 
 <aside class="notice">
-  `mj-table` is an "ending tag", which means it can contain HTML code which will be left as it is, so it can contain HTML tags with attributes, but it cannot contain other MJML components. In `mj-table` specifically, you can put anything you would put in a `<table>` element. More information about ending tags <a href="#ending-tags>in this section</a>.
+  `mj-table` is an "ending tag", which means it can contain HTML code which will be left as it is, so it can contain HTML tags with attributes, but it cannot contain other MJML components. In `mj-table` specifically, you can put anything you would put in a `<table>` element. More information about ending tags <a href="#ending-tags">in this section</a>.
 </aside>
 
 <table><thead>
@@ -4081,7 +4096,7 @@ Note that default icons are transparent, which allows <code>background-color</co
 </p>
 
 <aside class="notice">
-  `mj-text` is an "ending tag", which means it can contain HTML code which will be left as it is, so it can contain HTML tags with attributes, but it cannot contain other MJML components. More information about ending tags <a href="#ending-tags>in this section</a>.
+  `mj-text` is an "ending tag", which means it can contain HTML code which will be left as it is, so it can contain HTML tags with attributes, but it cannot contain other MJML components. More information about ending tags <a href="#ending-tags">in this section</a>.
 </aside>
 
 <table><thead>
