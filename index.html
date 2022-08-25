@@ -392,7 +392,31 @@
           </li>
           <li>
             <a href="#community-components" class="toc-h1 toc-link" data-title="community-components">Community components</a>
+          </li>
+          <li>
+            <a href="#ports-and-language-bindings" class="toc-h1 toc-link" data-title="ports-and-language-bindings">Ports and Language Bindings</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#rust-mrml" class="toc-h2 toc-link" data-title="rust-mrml">Rust: MRML</a>
+                  </li>
+                  <li>
+                    <a href="#net-mjml-net" class="toc-h2 toc-link" data-title="net-mjml-net">.NET: MJML.NET</a>
+                  </li>
+                  <li>
+                    <a href="#elixir-mjml-rust-nifs-for-elixir" class="toc-h2 toc-link" data-title="elixir-mjml-rust-nifs-for-elixir">Elixir: MJML (Rust NIFs for Elixir)</a>
+                  </li>
+                  <li>
+                    <a href="#ruby-mrml-ruby" class="toc-h2 toc-link" data-title="ruby-mrml-ruby">Ruby: MRML Ruby</a>
+                  </li>
+                  <li>
+                    <a href="#react-mjml-react" class="toc-h2 toc-link" data-title="react-mjml-react">React: mjml-react</a>
+                  </li>
+                  <li>
+                    <a href="#python-django-django-mjml" class="toc-h2 toc-link" data-title="python-django-django-mjml">Python / Django: django-mjml</a>
+                  </li>
+                  <li>
+                    <a href="#php-laravel-laravel-mjml" class="toc-h2 toc-link" data-title="php-laravel-laravel-mjml">PHP / Laravel: Laravel MJML</a>
+                  </li>
                   <li>
                     <a href="#mj-chart" class="toc-h2 toc-link" data-title="mj-chart">mj-chart</a>
                   </li>
@@ -638,8 +662,8 @@ For more tools, check the <a href="https://mjml.io/community">Community</a> page
 <tr>
 <td>fonts</td>
 <td>object</td>
-<td>Default fonts imported in the HTML rendered by HTML</td>
-<td>See in <a href="https://github.com/mjmlio/mjml/blob/master/packages/mjml-core/src/index.js#L36-L44">index.js</a></td>
+<td>Default fonts imported in the HTML rendered by MJML</td>
+<td>See in <a href="https://github.com/mjmlio/mjml/blob/master/packages/mjml-core/src/index.js#L100-L108">index.js</a></td>
 </tr>
 <tr>
 <td>keepComments</td>
@@ -4451,6 +4475,47 @@ For instance, this will likely cause problems if you use the <code>minify</code>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Finally, you can now use the component in a MJML file, for example <code>index.mjml</code>, and run MJML locally in your terminal (make sure to be in the folder where you installed MJML and the community component): <code>./node_modules/.bin/mjml index.mjml</code>.</p>
+<h1 id='ports-and-language-bindings'>Ports and Language Bindings</h1>
+<p>MJML is available for other platforms. The community has created ports to other platforms and wrappers for the official Node implementation. These contributions are not officially supported by the MJML teams.</p>
+<h2 id='rust-mrml'>Rust: MRML</h2>
+<p>This project is a reimplementation of the nice MJML markup language in Rust.</p>
+
+<p>https://github.com/jdrouet/mrml</p>
+<h3 id='missing-implementations-components'>Missing implementations / components:</h3>
+<ul>
+<li><code>mj-style[inline]</code>: not yet implemented. It requires parsing the generated html to apply the inline styles afterward (that&#39;s how it&#39;s done in mjml) which would kill the performances. Applying it at render time would improve the performance but it would still require to parse the CSS.</li>
+<li><code>mj-include</code>: not yet implemented. It requires to handle loading remote templates when using mrml in a wasm (browser or server side) format, which implies being able to load from a different location (<code>file://</code>, <code>https://</code>, relative, etc).</li>
+</ul>
+<h2 id='net-mjml-net'>.NET: MJML.NET</h2>
+<p>A blazingly-fast unofficial port of MJML 4 to .NET 6.</p>
+
+<p>https://github.com/SebastianStehle/mjml-net</p>
+<h3 id='missing-implementations-components-2'>Missing implementations / components</h3>
+<ul>
+<li><code>mj-style[inline]</code>: not yet implemented for performance reasons.</li>
+<li><code>mj-include</code>: not yet implemented because the library is used by server applications where the template is stored in the database.</li>
+<li><code>mj-html-attributes</code>: not yet implemented for performance reasons.</li>
+</ul>
+<h2 id='elixir-mjml-rust-nifs-for-elixir'>Elixir: MJML (Rust NIFs for Elixir)</h2>
+<p>Native Implemented Function (NIF) bindings for the MJML Rust implementation (mrml).</p>
+
+<p>https://github.com/adoptoposs/mjml_nif</p>
+<h2 id='ruby-mrml-ruby'>Ruby: MRML Ruby</h2>
+<p>Ruby wrapper for MRML, the MJML markup language implementation in Rust.</p>
+
+<p>https://github.com/hardpixel/mrml-ruby</p>
+<h2 id='react-mjml-react'>React: mjml-react</h2>
+<p>React components for MJML components.</p>
+
+<p>https://github.com/wix-incubator/mjml-react</p>
+<h2 id='python-django-django-mjml'>Python / Django: django-mjml</h2>
+<p>The simplest way to use MJML in Django templates.</p>
+
+<p>https://github.com/liminspace/django-mjml</p>
+<h2 id='php-laravel-laravel-mjml'>PHP / Laravel: Laravel MJML</h2>
+<p>Build responsive e-mails easily using MJML and Laravel Mailables.</p>
+
+<p>https://github.com/asahasrabuddhe/laravel-mjml</p>
 <h2 id='mj-chart'>mj-chart</h2>
 <p>Thanks to <a href="https://image-charts.com/">image-charts</a> for their contribution with this component. It&#39;s available on <a href="https://github.com/image-charts/mjml-charts">Github</a> and <a href="https://www.npmjs.com/package/mjml-chart">NPM</a>.</p>
 
