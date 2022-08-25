@@ -4124,15 +4124,16 @@ Note that default icons are transparent, which allows <code>background-color</co
 </tr>
 </tbody></table>
 <h2 id='mj-text'>mj-text</h2>
-<p>This tag allows you to display text in your email.</p>
+<p>This tag allows you to display text and HTML in your email.</p>
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;mjml&gt;</span>
   <span class="nt">&lt;mj-body&gt;</span>
     <span class="nt">&lt;mj-section&gt;</span>
       <span class="nt">&lt;mj-column&gt;</span>
-        <span class="nt">&lt;mj-text&gt;</span>
-          <span class="nt">&lt;h1&gt;</span>
-            Hey Title!
-          <span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;mj-text</span> <span class="na">font-family=</span><span class="s">"Helvetica"</span> <span class="na">color=</span><span class="s">"#F45E43"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h1&gt;</span>Title<span class="nt">&lt;/h1&gt;</span>
+
+          <span class="nt">&lt;p&gt;</span>Paragraph<span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">style=</span><span class="s">"font-family:Comic Sans Ms"</span><span class="nt">&gt;</span>Another paragraph<span class="nt">&lt;/p&gt;</span>
         <span class="nt">&lt;/mj-text&gt;</span>
       <span class="nt">&lt;/mj-column&gt;</span>
     <span class="nt">&lt;/mj-section&gt;</span>
