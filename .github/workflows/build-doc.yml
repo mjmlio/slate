@@ -13,12 +13,12 @@ jobs:
       - name: Install Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.4
+          ruby-version: 2.6
 
       - name: Install NodeJS
         uses: actions/setup-node@v1
         with:
-          node-version: "12"
+          node-version: "16"
 
       - name: Build Documentation
         run: bash make.sh
