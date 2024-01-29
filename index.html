@@ -3002,7 +3002,7 @@ Note that if no width is provided, the image will use the parent column width.</
   </a>
 </p>
 <h3 id='mj-navbar-2'>mj-navbar</h3>
-<p>Individual links of the menu should we wrapped inside mj-navbar.</p>
+<p>Individual links of the menu should be wrapped inside mj-navbar.</p>
 
 <p>Standard Desktop:</p>
 
@@ -3505,6 +3505,12 @@ changed to 100%.</p>
   <img src="https://cloud.githubusercontent.com/assets/6558790/12751360/0c78ce48-c9bd-11e5-98ca-4a2ac9e6341b.png" alt="desktop" style="width: 250px;"/>
 </p>
 
+<aside class="warning">
+  `mj-social-element`'s `name` attribute is a shortcut for some common social elements. <br />
+  You should avoid rely too much on this as those icons are hosted by Mailjet for their Email Builder.<br />
+  Use <a href="#custom-social-element">custom element syntax instead.</a>
+</aside>
+
 <p>Displays calls-to-action for various social networks with their associated logo. You can add social networks with the <code>mj-social-element</code> tag.</p>
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;mjml&gt;</span>
   <span class="nt">&lt;mj-body&gt;</span>
@@ -3517,8 +3523,11 @@ changed to 100%.</p>
           <span class="nt">&lt;mj-social-element</span> <span class="na">name=</span><span class="s">"google"</span> <span class="na">href=</span><span class="s">"https://mjml.io/"</span><span class="nt">&gt;</span>
             Google
           <span class="nt">&lt;/mj-social-element&gt;</span>
-          <span class="nt">&lt;mj-social-element</span>  <span class="na">name=</span><span class="s">"twitter"</span> <span class="na">href=</span><span class="s">"https://mjml.io/"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;mj-social-element</span> <span class="na">name=</span><span class="s">"twitter"</span> <span class="na">href=</span><span class="s">"https://mjml.io/"</span><span class="nt">&gt;</span>
             Twitter
+          <span class="nt">&lt;/mj-social-element&gt;</span>
+          <span class="nt">&lt;mj-social-element</span> <span class="na">name=</span><span class="s">"x"</span> <span class="na">href=</span><span class="s">"https://mjml.io/"</span><span class="nt">&gt;</span>
+            X
           <span class="nt">&lt;/mj-social-element&gt;</span>
         <span class="nt">&lt;/mj-social&gt;</span>
       <span class="nt">&lt;/mj-column&gt;</span>
@@ -3874,6 +3883,7 @@ Note that default icons are transparent, which allows <code>background-color</co
 <p>Supported networks with a share url:
 - facebook
 - twitter
+- x
 - google
 - pinterest
 - linkedin
