@@ -13,7 +13,6 @@ npm run concat-docs-md &&
 
 mv js/CONTENT.md source/index.html.md &&
 
-gem install bundler -v 2.4.22 &&
 bundle install &&
 bundle exec middleman build &&
 mv build ./mjml-doc &&
