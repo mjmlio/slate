@@ -415,6 +415,9 @@
                     <a href="#python-mjml-python" class="toc-h2 toc-link" data-title="python-mjml-python">Python: mjml-python</a>
                   </li>
                   <li>
+                    <a href="#python-mjml-python-2" class="toc-h2 toc-link" data-title="python-mjml-python">Python: mjml-python</a>
+                  </li>
+                  <li>
                     <a href="#python-django-django-mjml" class="toc-h2 toc-link" data-title="python-django-django-mjml">Python / Django: django-mjml</a>
                   </li>
                   <li>
@@ -4507,7 +4510,6 @@ For instance, this will likely cause problems if you use the <code>minify</code>
 <h3 id='missing-implementations-components'>Missing implementations / components:</h3>
 <ul>
 <li><code>mj-style[inline]</code>: not yet implemented. It requires parsing the generated html to apply the inline styles afterward (that&#39;s how it&#39;s done in mjml) which would kill the performances. Applying it at render time would improve the performance but it would still require to parse the CSS.</li>
-<li><code>mj-include</code>: not yet implemented. It requires to handle loading remote templates when using mrml in a wasm (browser or server side) format, which implies being able to load from a different location (<code>file://</code>, <code>https://</code>, relative, etc).</li>
 </ul>
 <h2 id='net-mjml-net'>.NET: MJML.NET</h2>
 <p>A blazingly-fast unofficial port of MJML 4 to .NET 6.</p>
@@ -4531,6 +4533,10 @@ For instance, this will likely cause problems if you use the <code>minify</code>
 
 <p>https://github.com/faire/mjml-react#readme</p>
 <h2 id='python-mjml-python'>Python: mjml-python</h2>
+<p>Python wrapper for MRML, the MJML markup language implementation in Rust.</p>
+
+<p>https://github.com/mgd020/mjml-python</p>
+<h2 id='python-mjml-python-2'>Python: mjml-python</h2>
 <p>Python implementation for MJML.</p>
 
 <p>https://github.com/FelixSchwarz/mjml-python</p>
