@@ -1035,7 +1035,7 @@ Here, we&#39;re going to use <code>facebook</code> only.</p>
 <h2 id='mj-head'>mj-head</h2>
 <p>mj-head contains head components, related to the document such as style and meta elements (see <a href="#standard-head-components">head components</a>).</p>
 <h2 id='mj-body'>mj-body</h2>
-<p>This is the starting point of your email.</p>
+<p>This is the starting point of your email. To aid accessibility, MJML automatically adds a <code>div</code> tag as the child of the body, with the following ARIA attributes <code>role=&quot;article&quot;</code>, <code>aria-roledescription=&quot;email&quot;</code> and <code>aria-label=&quot;EMAIL NAME&quot;</code>, where &#39;EMAIL NAME&#39; is taken from the content of the <code>mj-title</code> tag. The <code>lang</code> and <code>dir</code> attributes are also added here, with values taken from the <code>mjml</code> tag.</p>
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;mjml&gt;</span>
   <span class="nt">&lt;mj-body&gt;</span>
     <span class="c">&lt;!-- Your email goes here --&gt;</span>
