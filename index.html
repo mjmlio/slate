@@ -854,10 +854,10 @@ over <a href="https://mjml.io/api">here</a> to learn more about the API.</p>
 <span class="c">&lt;!-- Company Header --&gt;</span>
 <span class="nt">&lt;mj-section</span> <span class="na">background-color=</span><span class="s">"#f0f0f0"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;mj-column&gt;</span>
-    <span class="nt">&lt;mj-text</span>  <span class="na">align=</span><span class="s">"center"</span>
-          <span class="na">font-style=</span><span class="s">"italic"</span>
-              <span class="na">font-size=</span><span class="s">"20px"</span>
-              <span class="na">color=</span><span class="s">"#626262"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;mj-text</span> <span class="na">align=</span><span class="s">"center"</span>
+             <span class="na">font-style=</span><span class="s">"italic"</span>
+             <span class="na">font-size=</span><span class="s">"20px"</span>
+             <span class="na">color=</span><span class="s">"#626262"</span><span class="nt">&gt;</span>
       My Company
     <span class="nt">&lt;/mj-text&gt;</span>
   <span class="nt">&lt;/mj-column&gt;</span>
@@ -878,18 +878,17 @@ Remember everything has to be contained in one column.
               <span class="na">background-repeat=</span><span class="s">"no-repeat"</span><span class="nt">&gt;</span>
 
     <span class="nt">&lt;mj-column</span> <span class="na">width=</span><span class="s">"600px"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;mj-text</span>  <span class="na">align=</span><span class="s">"center"</span>
-                  <span class="na">color=</span><span class="s">"#fff"</span>
-                  <span class="na">font-size=</span><span class="s">"40px"</span>
-                  <span class="na">font-family=</span><span class="s">"Helvetica Neue"</span><span class="nt">&gt;</span>
-      Slogan here
-    <span class="nt">&lt;/mj-text&gt;</span>
+      <span class="nt">&lt;mj-text</span> <span class="na">align=</span><span class="s">"center"</span>
+               <span class="na">color=</span><span class="s">"#fff"</span>
+               <span class="na">font-size=</span><span class="s">"40px"</span>
+               <span class="na">font-family=</span><span class="s">"Helvetica Neue"</span><span class="nt">&gt;</span>
+        Slogan here
+      <span class="nt">&lt;/mj-text&gt;</span>
 
       <span class="nt">&lt;mj-button</span> <span class="na">background-color=</span><span class="s">"#F63A4D"</span>
                  <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
         Promotion
       <span class="nt">&lt;/mj-button&gt;</span>
-
     <span class="nt">&lt;/mj-column&gt;</span>
 
   <span class="nt">&lt;/mj-section&gt;</span>
@@ -905,20 +904,21 @@ In order to have the background rendered full-width in the column, set the colum
 <h2 id='introduction-text'>Introduction Text</h2><pre class="highlight html tab-html"><code>
 <span class="c">&lt;!-- Intro text --&gt;</span>
   <span class="nt">&lt;mj-section</span> <span class="na">background-color=</span><span class="s">"#fafafa"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;mj-column</span> <span class="na">width=</span><span class="s">"400px"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;mj-column</span> <span class="na">width=</span><span class="s">"400px"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;mj-text</span> <span class="na">font-style=</span><span class="s">"italic"</span>
+               <span class="na">font-size=</span><span class="s">"20px"</span>
+               <span class="na">font-family=</span><span class="s">"Helvetica Neue"</span>
+               <span class="na">color=</span><span class="s">"#626262"</span><span class="nt">&gt;</span>
+        My Awesome Text
+      <span class="nt">&lt;/mj-text&gt;</span>
+      <span class="nt">&lt;mj-text</span> <span class="na">color=</span><span class="s">"#525252"</span><span class="nt">&gt;</span>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin rutrum enim eget magna efficitur, eu semper augue semper. Aliquam erat volutpat. Cras id dui lectus. Vestibulum sed finibus lectus, sit amet suscipit nibh. Proin nec commodo purus. Sed eget nulla elit. Nulla aliquet mollis faucibus.
+      <span class="nt">&lt;/mj-text&gt;</span>
 
-          <span class="nt">&lt;mj-text</span> <span class="na">font-style=</span><span class="s">"italic"</span>
-                   <span class="na">font-size=</span><span class="s">"20px"</span>
-                   <span class="na">font-family=</span><span class="s">"Helvetica Neue"</span>
-                   <span class="na">color=</span><span class="s">"#626262"</span><span class="nt">&gt;</span>My Awesome Text<span class="nt">&lt;/mj-text&gt;</span>
-
-            <span class="nt">&lt;mj-text</span> <span class="na">color=</span><span class="s">"#525252"</span><span class="nt">&gt;</span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin rutrum enim eget magna efficitur, eu semper augue semper. Aliquam erat volutpat. Cras id dui lectus. Vestibulum sed finibus lectus, sit amet suscipit nibh. Proin nec commodo purus. Sed eget nulla elit. Nulla aliquet mollis faucibus.
-          <span class="nt">&lt;/mj-text&gt;</span>
-
-            <span class="nt">&lt;mj-button</span> <span class="na">background-color=</span><span class="s">"#F45E43"</span>
-                     <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Learn more<span class="nt">&lt;/mj-button&gt;</span>
-
+      <span class="nt">&lt;mj-button</span> <span class="na">background-color=</span><span class="s">"#F45E43"</span>
+                 <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+        Learn more
+      <span class="nt">&lt;/mj-button&gt;</span>
     <span class="nt">&lt;/mj-column&gt;</span>
   <span class="nt">&lt;/mj-section&gt;</span>
 
@@ -945,7 +945,8 @@ The title is a regular <code>mj-text</code> that can be customized.</p>
       <span class="nt">&lt;/mj-text&gt;</span>
 
       <span class="nt">&lt;mj-text</span> <span class="na">color=</span><span class="s">"#525252"</span><span class="nt">&gt;</span>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin rutrum enim eget magna efficitur, eu semper augue semper. Aliquam erat volutpat. Cras id dui lectus. Vestibulum sed finibus lectus.<span class="nt">&lt;/mj-text&gt;</span>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin rutrum enim eget magna efficitur, eu semper augue semper. Aliquam erat volutpat. Cras id dui lectus. Vestibulum sed finibus lectus.
+      <span class="nt">&lt;/mj-text&gt;</span>
 
   <span class="nt">&lt;/mj-column&gt;</span>
 <span class="nt">&lt;/mj-section&gt;</span>
