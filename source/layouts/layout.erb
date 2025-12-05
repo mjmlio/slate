@@ -24,11 +24,12 @@ under the License.
 %>
 
 <!doctype html>
-<html>
+<html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="MJML (Mailjet Markup Language) is a markup language designed to reduce the pain of coding a responsive email.">
     <title><%= "Documentation for MJML - The Responsive Email Framework" %></title>
 
     <style>
@@ -52,7 +53,7 @@ under the License.
     </a>
     <div class="toc-wrapper">
       <a href="/">
-        <%= image_tag "logo.png", class: 'logo' %>
+        <%= image_tag "logo.svg", class: 'logo', alt: 'MJML Logo' %>
       </a>
       <% if language_tabs.any? %>
         <div class="lang-selector">
@@ -67,26 +68,38 @@ under the License.
       <% end %>
       <% if current_page.data.search %>
         <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
+          <label for="input-search" class="search-label">Search the documentation</label>
+          <input type="text" class="search" id="input-search" placeholder="Search" aria-labelledby="search-label" />
         </div>
         <ul class="search-results"></ul>
       <% end %>
-      <div id="toc" class="toc-list-h1">
+      <ul id="toc" class="toc-list-h1">
+        <%# Get the first top-level item (the H1), and then loop through its children (the H2s) %>
         <% toc_data(page_content).each do |h1| %>
           <li>
-            <a href="#<%= h1[:id] %>" class="toc-h1 toc-link" data-title="<%= h1[:content].to_s.parameterize %>"><%= h1[:content] %></a>
-            <% if h1[:children].length > 0 %>
+            <%# This link is for the H1 %>
+            <a href="#<%= h1[:id] %>" class="toc-h1 toc-link" data-title="<%= h1[:content] %>"><%= h1[:content] %></a>
+          </li>
+        <% end %>
+        <% toc_data(page_content).first[:children].each do |h2| %>
+          <li>
+            <%# This link is for the H2 now %>
+            <a href="#<%= h2[:id] %>" class="toc-h1 toc-link" data-title="<%= h2[:content] %>"><%= h2[:content] %></a>
+            
+            <%# Check if the H2 has children (the H3s) %>
+            <% if h2[:children].length > 0 %>
               <ul class="toc-list-h2">
-                <% h1[:children].each do |h2| %>
+                <% h2[:children].each do |h3| %>
                   <li>
-                    <a href="#<%= h2[:id] %>" class="toc-h2 toc-link" data-title="<%= h2[:content].to_s.parameterize %>"><%= h2[:content] %></a>
+                    <%# This link is for the H3 %>
+                    <a href="#<%= h3[:id] %>" class="toc-h3 toc-link" data-title="<%= h3[:content] %>"><%= h3[:content] %></a>
                   </li>
                 <% end %>
               </ul>
             <% end %>
           </li>
         <% end %>
-      </div>
+      </ul>
       <% if current_page.data.toc_footers %>
         <ul class="toc-footer">
           <% current_page.data.toc_footers.each do |footer| %>
