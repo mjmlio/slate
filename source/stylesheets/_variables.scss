@@ -11,32 +11,29 @@ License for the specific language governing permissions and limitations
 under the License.
 */
 
-
 ////////////////////////////////////////////////////////////////////////////////
 // CUSTOMIZE SLATE
 ////////////////////////////////////////////////////////////////////////////////
 // Use these settings to help adjust the appearance of Slate
 
-
 // BACKGROUND COLORS
 ////////////////////
-$nav-bg: #F4F4F2 !default;
-$examples-bg: #354A5D !default;
-$code-bg: #2D3F50 !default;
-$code-annotation-bg: #2D3F50 !default;
-$nav-subitem-bg: #F0F0F0 !default;
-$nav-active-bg: #F25F4A !default;
-$nav-active-parent-bg: #F4F4F2 !default; // parent links of the current section
+$nav-bg: #f4f4f2 !default;
+$examples-bg: #354a5d !default;
+$code-bg: #2d3f50 !default;
+$code-annotation-bg: #2d3f50 !default;
+$nav-subitem-bg: #f0f0f0 !default;
+$nav-active-bg: #d2351a !default;
+$nav-active-parent-bg: #f4f4f2 !default; // parent links of the current section
 $lang-select-border: #000 !default;
-$lang-select-bg: #2D3F50 !default;
+$lang-select-bg: #2d3f50 !default;
 $lang-select-active-bg: $examples-bg !default; // feel free to change this to blue or something
 $lang-select-pressed-bg: #111 !default; // color of language tab bg when mouse is pressed
-$main-bg: #F8F8F8 !default;
+$main-bg: #f8f8f8 !default;
 $aside-notice-bg: #6b96ac !default;
 $aside-warning-bg: #c97a7e !default;
 $aside-success-bg: #6ac174 !default;
 $search-notice-bg: #c97a7e !default;
-
 
 // TEXT COLORS
 ////////////////////
@@ -48,6 +45,10 @@ $lang-select-text: #424242 !default; // color of unselected language tab text
 $lang-select-active-text: #fff !default; // color of selected language tab text
 $lang-select-pressed-text: #fff !default; // color of language tab text when mouse is pressed
 
+// CTA COLORS
+////////////////////
+$cta-bg: #2b6ee9 !default; // main content text color
+$cta-text: #fff !default;
 
 // SIZES
 ////////////////////
@@ -63,12 +64,12 @@ $h1-margin-bottom: 21px !default; // padding under the largest header tags
 $tablet-width: 930px !default; // min width before reverting to tablet size
 $phone-width: $tablet-width - $nav-width !default; // min width before reverting to mobile size
 
-
 // FONTS
 ////////////////////
+
 %default-font {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 14px;
+  font-size: 16px;
 }
 
 %header-font {
@@ -77,17 +78,17 @@ $phone-width: $tablet-width - $nav-width !default; // min width before reverting
 }
 
 %code-font {
-  font-family: Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
-  font-size: 12px;
-  line-height: 1.5;
+  font-family: Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono",
+    "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace,
+    serif;
+  font-size: 13px;
+  line-height: 1.5em;
 }
-
 
 // OTHER
 ////////////////////
 $nav-footer-border-color: #666 !default;
 $search-box-border-color: #666 !default;
-
 
 ////////////////////////////////////////////////////////////////////////////////
 // INTERNAL
@@ -95,6 +96,6 @@ $search-box-border-color: #666 !default;
 // These settings are probably best left alone.
 
 %break-words {
-    word-break: break-all;
-    hyphens: auto;
+  word-break: break-all;
+  hyphens: auto;
 }
