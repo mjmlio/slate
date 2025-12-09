@@ -837,6 +837,10 @@ div.alert {
       text-decoration: none;
       border-bottom: dashed 1px #ccc;
     }
+
+    @media (min-width: $phone-width) {
+      transform: translateY(-1.5em);
+    }
   }
 
   pre {
@@ -844,10 +848,6 @@ div.alert {
     padding-top: 2em;
     padding-bottom: 2em;
     padding: 2em $main-padding;
-
-    @media (min-width: $phone-width) {
-      transform: translateY(-1.5em);
-    }
   }
 
   blockquote {
