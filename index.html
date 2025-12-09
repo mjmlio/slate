@@ -670,19 +670,77 @@ For more tools, <a href="https://mjml.io/community">check the Community page</a>
 */</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">htmlOutput</span><span class="p">)</span>
 </code></pre>
-<p>You can pass optional <code>options</code> as an object to the <code>mjml2html</code> function:
-option                  | accepts      | description                                                                                                                                               | default value
-| -------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| fonts                | object  | Default fonts imported in the HTML rendered by MJML                                                                                                    | See in <a href="https://github.com/mjmlio/mjml/blob/master/packages/mjml-core/src/index.js#L100-L108">index.js</a>                                                                                                                                                                                                                                                                           |
-| keepComments         | boolean | Option to keep comments in the HTML output                                                                                                             | <code>true</code>                                                                                                                                                                                                                                                                                                                                                                            |
-| beautify             | boolean | Option to beautify the HTML output                                                                                                                     | <code>false</code>                                                                                                                                                                                                                                                                                                                                                                           |
-| minify               | boolean | Option to minify the HTML output                                                                                                                       | <code>false</code>                                                                                                                                                                                                                                                                                                                                                                           |
-| validationLevel      | string  | Available values for the <a href="https://github.com/mjmlio/mjml/tree/master/packages/mjml-validator#validating-mjml">validator</a>: <code>strict</code> <code>soft</code> <code>skip</code>       | <code>soft</code>                                                                                                                                                                                                                                                                                                                                                                            |
-| filePath             | string  | Full path of the specified file to use when resolving paths from <a href="#mj-include"><code>mj-include</code> components</a>                                                | <code>.</code>                                                                                                                                                                                                                                                                                                                                                                               |
-| mjmlConfigPath       | string  | The path or directory of the <a href="#community-components"><code>.mjmlconfig</code> file</a>                                                                               | <code>process.cwd()</code>                                                                                                                                                                                                                                                                                                                                                                   |
-| useMjmlConfigOptions | boolean | Allows to use the <code>options</code> attribute from <code>.mjmlconfig</code> file                                                                                          | <code>false</code>                                                                                                                                                                                                                                                                                                                                                                           |
-| minifyOptions        | object  | Options for HTML minifier, see <a href="https://github.com/mjmlio/mjml/blob/master/packages/mjml-cli/README.md">mjml-cli documentation</a> for more info          | <code>{&quot;collapseWhitespace&quot;: true, &quot;minifyCss&quot;: false, &quot;removeEmptyAttributes&quot;: true}</code> <br><br> <code>minifyCss</code> can take a value of <code>false</code> or one of the two preset options <code>lite</code> or <code>default</code>. Within either preset, you can specify specific options from cssnano, for example <code>minifyCss: { options: { preset: [ &#39;default&#39;, { minifyFontValues: { removeQuotes: false }, }, ], }, },</code> |
-| juicePreserveTags    | boolean | Optional setting when inlining CSS, see <a href="https://github.com/mjmlio/mjml/blob/master/packages/mjml-cli/README.md">mjml-cli documentation</a> for more info |                                                                                                                                                                                                                                                                                                                                                                                   |</p>
+<p>You can pass optional <code>options</code> as an object to the <code>mjml2html</code> function:</p>
+
+<table><thead>
+<tr>
+<th>option</th>
+<th>accepts</th>
+<th>description</th>
+<th>default value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>fonts</td>
+<td>object</td>
+<td>Default fonts imported in the HTML rendered by MJML</td>
+<td>See in <a href="https://github.com/mjmlio/mjml/blob/master/packages/mjml-core/src/index.js#L100-L108">index.js</a></td>
+</tr>
+<tr>
+<td>keepComments</td>
+<td>boolean</td>
+<td>Option to keep comments in the HTML output</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>beautify</td>
+<td>boolean</td>
+<td>Option to beautify the HTML output</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>minify</td>
+<td>boolean</td>
+<td>Option to minify the HTML output</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>validationLevel</td>
+<td>string</td>
+<td>Available values for the <a href="https://github.com/mjmlio/mjml/tree/master/packages/mjml-validator#validating-mjml">validator</a>: <code>strict</code> <code>soft</code> <code>skip</code></td>
+<td><code>soft</code></td>
+</tr>
+<tr>
+<td>filePath</td>
+<td>string</td>
+<td>Full path of the specified file to use when resolving paths from <a href="#mj-include"><code>mj-include</code> components</a></td>
+<td><code>.</code></td>
+</tr>
+<tr>
+<td>mjmlConfigPath</td>
+<td>string</td>
+<td>The path or directory of the <a href="#community-components"><code>.mjmlconfig</code> file</a></td>
+<td><code>process.cwd()</code></td>
+</tr>
+<tr>
+<td>useMjmlConfigOptions</td>
+<td>boolean</td>
+<td>Allows to use the <code>options</code> attribute from <code>.mjmlconfig</code> file</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>minifyOptions</td>
+<td>object</td>
+<td>Options for HTML minifier, see <a href="https://github.com/mjmlio/mjml/blob/master/packages/mjml-cli/README.md">mjml-cli documentation</a> for more info</td>
+<td><code>{&quot;collapseWhitespace&quot;: true, &quot;minifyCss&quot;: false, &quot;removeEmptyAttributes&quot;: true}</code> <br><br> <code>minifyCss</code> can take a value of <code>false</code> or one of the two preset options <code>lite</code> or <code>default</code>. Within either preset, you can specify specific options from cssnano, for example <code>minifyCss: { options: { preset: [ &#39;default&#39;, { minifyFontValues: { removeQuotes: false }, }, ], }, },</code></td>
+</tr>
+<tr>
+<td>juicePreserveTags</td>
+<td>boolean</td>
+<td>Optional setting when inlining CSS, see <a href="https://github.com/mjmlio/mjml/blob/master/packages/mjml-cli/README.md">mjml-cli documentation</a> for more info</td>
+<td></td>
+</tr>
+</tbody></table>
 <h3 id='api'>API</h3>
 <p>A free-to-use MJML API is available to make it easy to integrate MJML in your application. Head
 over here to <a href="https://mjml.io/api">learn more about the API</a>.</p>
