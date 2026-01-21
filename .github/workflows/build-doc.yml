@@ -3,6 +3,7 @@ name: Build Documentation
 on:
   repository_dispatch:
     types: [build-doc]
+  workflow_dispatch:
 
 jobs:
   buildDoc:
