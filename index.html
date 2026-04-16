@@ -254,6 +254,9 @@
                     <a href="#inside-node-js" class="toc-h3 toc-link" data-title="Inside Node.js">Inside Node.js</a>
                   </li>
                   <li>
+                    <a href="#best-practices-for-shared-partials" class="toc-h3 toc-link" data-title="Best practices for shared partials">Best practices for shared partials</a>
+                  </li>
+                  <li>
                     <a href="#api" class="toc-h3 toc-link" data-title="API">API</a>
                   </li>
               </ul>
@@ -469,6 +472,18 @@
               </ul>
           </li>
           <li>
+            <a href="#template-tokens-in-css" class="toc-h1 toc-link" data-title="Template Tokens in CSS">Template Tokens in CSS</a>
+            
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#cli-examples" class="toc-h3 toc-link" data-title="CLI examples">CLI examples</a>
+                  </li>
+                  <li>
+                    <a href="#programmatic-usage" class="toc-h3 toc-link" data-title="Programmatic usage">Programmatic usage</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#community-contributions" class="toc-h1 toc-link" data-title="Community Contributions">Community Contributions</a>
             
               <ul class="toc-list-h2">
@@ -541,7 +556,7 @@
 <a href="#usage">head over to Usage</a> for other ways to use MJML.</p>
 <pre class="highlight shell"><code>npm install mjml
 </code></pre><h2 id='development'>Development</h2>
-<p>To work on MJML, make changes and create merge requests, <a href="https://yarnpkg.com/lang/en/docs/install/">download and
+<p>To work on MJML, make changes and create pull requests, <a href="https://yarnpkg.com/lang/en/docs/install/">download and
 install yarn</a> for easy development.</p>
 <pre class="highlight shell"><code>git clone https://github.com/mjmlio/mjml.git <span class="o">&amp;&amp;</span> <span class="nb">cd </span>mjml
 yarn
@@ -560,8 +575,7 @@ yarn build
 <p>MJML comes with an ecosystem of tools and plugins, check out:</p>
 
 <ul>
-<li>The <a href="https://mjmlio.github.io/mjml-app/">MJML App</a> (MJML is included)</li>
-<li><a href="https://github.com/mjmlio/vscode-mjml">Visual Studio Code plugin</a> (MJML is included)</li>
+<li><a href="https://github.com/mjmlio/vscode-mjml">Visual Studio Code plugin</a> (<strong>MJML</strong> is included). <br>Also available at <a href="https://marketplace.visualstudio.com/items?itemName=mjmlio.vscode-mjml">Visual Studio Code Marketplace</a> and the <a href="https://open-vsx.org/extension/mjmlio/vscode-mjml">Open VSX Registry</a> or in the extensions tab of the Visual Studio Code app.</li>
 <li><a href="https://packagecontrol.io/packages/MJML-syntax">Sublime Text plugin</a> (MJML needs to be installed separately)</li>
 </ul>
 
@@ -583,11 +597,6 @@ For more tools, <a href="https://mjml.io/community">check the Community page</a>
 </tr>
 </thead><tbody>
 <tr>
-<td><code>mjml -m [input]</code></td>
-<td>Migrates a v3 MJML file to the v4 syntax</td>
-<td></td>
-</tr>
-<tr>
 <td><code>mjml [input] -o [output]</code></td>
 <td>Writes the output to [output]</td>
 <td></td>
@@ -608,14 +617,24 @@ For more tools, <a href="https://mjml.io/community">check the Community page</a>
 <td></td>
 </tr>
 <tr>
+<td><code>mjml [input] --config.allowIncludes</code></td>
+<td>Enables <code>mj-include</code> processing (<code>true</code> or <code>false</code>)</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>mjml [input] --config.allowMixedSyntax</code></td>
+<td>Allow mixing block tokens (e.g. <code>{%...%}</code>) with CSS tokens (e.g. <code>color: {{...}}</code>) in the same document</td>
+<td><code>false</code></td>
+</tr>
+<tr>
 <td><code>mjml [input] --config.beautify</code></td>
 <td>Beautifies the output (<code>true</code> or <code>false</code>)</td>
 <td><code>true</code></td>
 </tr>
 <tr>
-<td><code>mjml [input] --config.minify</code></td>
-<td>Minifies the output (<code>true</code> or <code>false</code>)</td>
-<td><code>false</code></td>
+<td><code>mjml [input] --config.includePath</code></td>
+<td>Adds allowlisted include root(s), as a string path or JSON array of paths</td>
+<td></td>
 </tr>
 <tr>
 <td><code>mjml [input] --config.juicePreserveTags</code></td>
@@ -623,14 +642,29 @@ For more tools, <a href="https://mjml.io/community">check the Community page</a>
 <td></td>
 </tr>
 <tr>
+<td><code>mjml [input] --config.minify</code></td>
+<td>Minifies the output (<code>true</code> or <code>false</code>)</td>
+<td><code>false</code></td>
+</tr>
+<tr>
 <td><code>mjml [input] --config.minifyOptions</code></td>
-<td>Options for html minifier, see <a href="https://github.com/mjmlio/mjml/blob/master/packages/mjml-cli/README.md">mjml-cli documentation</a> for more info</td>
+<td>Options for HTML minifier. Use <code>minifyCss</code> to control CSS minification (legacy: <code>minifyCSS</code> is still accepted). See <a href="https://github.com/mjmlio/mjml/blob/master/packages/mjml-cli/README.md">mjml-cli documentation</a> for more info</td>
 <td></td>
 </tr>
 <tr>
 <td><code>mjml [input] --config.mjmlConfigPath [mjmlconfigPath]</code></td>
 <td>Uses the <code>.mjmlconfig</code> file in the specified path or directory to include custom components</td>
 <td><em>The <code>.mjmlconfig</code> file in the current working directory, if any</em></td>
+</tr>
+<tr>
+<td><code>mjml [input] --config.sanitizeStyles</code></td>
+<td>Optional setting when using templating syntax to sanitize the input to PostCSS preventing (<code>true</code> or <code>false</code>) errors</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>mjml [input] --config.templateSyntax</code></td>
+<td>JSON array of <code>{ prefix, suffix }</code> objects to declare templating delimiters (used by sanitization and restore)</td>
+<td></td>
 </tr>
 <tr>
 <td><code>mjml [input] --config.useMjmlConfigOptions</code></td>
@@ -643,32 +677,55 @@ For more tools, <a href="https://mjml.io/community">check the Community page</a>
 <td><code>soft</code></td>
 </tr>
 </tbody></table>
-<h3 id='inside-node-js'>Inside Node.js</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">import</span> <span class="nx">mjml2html</span> <span class="nx">from</span> <span class="s1">'mjml'</span>
+<h4 id='minify-options-compatibility'>Minify options compatibility</h4>
+<p>CSS minification is controlled via <code>minifyCss</code>. For backward compatibility, the legacy <code>minifyCSS</code> key is still accepted and mapped internally:</p>
+
+<ul>
+<li>Disable CSS minification:</li>
+</ul>
+<pre class="highlight shell"><code>mjml input.mjml -o output.html --config.minify <span class="nb">true</span> --config.minifyOptions <span class="s1">'{"minifyCss": false}'</span>
+<span class="c"># legacy:</span>
+mjml input.mjml -o output.html --config.minify <span class="nb">true</span> --config.minifyOptions <span class="s1">'{"minifyCSS": false}'</span>
+</code></pre>
+<ul>
+<li>Enable CSS minification with presets or options:</li>
+</ul>
+<pre class="highlight shell"><code><span class="c"># lite preset</span>
+mjml input.mjml -o output.html --config.minify <span class="nb">true</span> --config.minifyOptions <span class="s1">'{"minifyCss": "lite"}'</span>
+<span class="c"># legacy equivalent (maps to lite)</span>
+mjml input.mjml -o output.html --config.minify <span class="nb">true</span> --config.minifyOptions <span class="s1">'{"minifyCSS": true}'</span>
+<span class="c"># default preset with single quotes for strings</span>
+mjml input.mjml -o output.html --config.minify <span class="nb">true</span> --config.minifyOptions <span class="s1">'{"minifyCss": {"preset":["default", {"normalizeString":{"preferredQuote":"single"}}]}}'</span>
+</code></pre><h3 id='inside-node-js'>Inside Node.js</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">import</span> <span class="nx">mjml2html</span> <span class="nx">from</span> <span class="s1">'mjml'</span>
 
 <span class="cm">/*
   Compile an mjml string
 */</span>
-<span class="kr">const</span> <span class="nx">htmlOutput</span> <span class="o">=</span> <span class="nx">mjml2html</span><span class="p">(</span>
-  <span class="s2">`
-  &lt;mjml&gt;
-    &lt;mj-body&gt;
-      &lt;mj-section&gt;
-        &lt;mj-column&gt;
-          &lt;mj-text&gt;
-            Hello World!
-          &lt;/mj-text&gt;
-        &lt;/mj-column&gt;
-      &lt;/mj-section&gt;
-    &lt;/mj-body&gt;
-  &lt;/mjml&gt;
-`</span><span class="p">,</span>
-  <span class="nx">options</span><span class="p">,</span>
-<span class="p">)</span>
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">renderMjml</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">htmlOutput</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">mjml2html</span><span class="p">(</span>
+    <span class="s2">`
+    &lt;mjml&gt;
+      &lt;mj-body&gt;
+        &lt;mj-section&gt;
+          &lt;mj-column&gt;
+            &lt;mj-text&gt;
+              Hello World!
+            &lt;/mj-text&gt;
+          &lt;/mj-column&gt;
+        &lt;/mj-section&gt;
+      &lt;/mj-body&gt;
+    &lt;/mjml&gt;
+  `</span><span class="p">,</span>
+    <span class="nx">options</span><span class="p">,</span>
+  <span class="p">)</span>
 
-<span class="cm">/*
-  Print the responsive HTML generated and MJML errors if any
-*/</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">htmlOutput</span><span class="p">)</span>
+  <span class="cm">/*
+    Print the responsive HTML generated and MJML errors if any
+  */</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">htmlOutput</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nx">renderMjml</span><span class="p">()</span>
 </code></pre>
 <p>You can pass optional <code>options</code> as an object to the <code>mjml2html</code> function:</p>
 
@@ -681,16 +738,10 @@ For more tools, <a href="https://mjml.io/community">check the Community page</a>
 </tr>
 </thead><tbody>
 <tr>
-<td>fonts</td>
-<td>object</td>
-<td>Default fonts imported in the HTML rendered by MJML</td>
-<td>See in <a href="https://github.com/mjmlio/mjml/blob/master/packages/mjml-core/src/index.js#L100-L108">index.js</a></td>
-</tr>
-<tr>
-<td>keepComments</td>
+<td>allowMixedSyntax</td>
 <td>boolean</td>
-<td>Option to keep comments in the HTML output</td>
-<td><code>true</code></td>
+<td>Allow mixing block tokens and CSS tokens within the same document when sanitizing/minifying CSS</td>
+<td><code>false</code></td>
 </tr>
 <tr>
 <td>beautify</td>
@@ -699,22 +750,52 @@ For more tools, <a href="https://mjml.io/community">check the Community page</a>
 <td><code>false</code></td>
 </tr>
 <tr>
+<td>filePath</td>
+<td>string</td>
+<td>Path of the input file or a base directory; determines the default include sandbox (includes are allowed only under this directory when enabled)</td>
+<td>&#39;.&#39;</td>
+</tr>
+<tr>
+<td>ignoreIncludes</td>
+<td>boolean</td>
+<td>Option to ignore <code>mj-include</code> instances</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>includePath</td>
+<td>string or array of strings</td>
+<td>One or more explicit directories where includes are allowed, in addition to <code>filePath</code>. Paths outside these directories are denied.</td>
+<td></td>
+</tr>
+<tr>
+<td>fonts</td>
+<td>object</td>
+<td>Default fonts imported in the HTML rendered by MJML</td>
+<td>See in <a href="https://github.com/mjmlio/mjml/blob/master/packages/mjml-core/src/index.js">index.js</a></td>
+</tr>
+<tr>
+<td>juicePreserveTags</td>
+<td>object</td>
+<td>Optional setting when inlining CSS, see <a href="https://github.com/mjmlio/mjml/blob/master/packages/mjml-cli/README.md">mjml-cli documentation</a> for more info</td>
+<td></td>
+</tr>
+<tr>
+<td>keepComments</td>
+<td>boolean</td>
+<td>Option to keep comments in the HTML output</td>
+<td><code>true</code></td>
+</tr>
+<tr>
 <td>minify</td>
 <td>boolean</td>
 <td>Option to minify the HTML output</td>
 <td><code>false</code></td>
 </tr>
 <tr>
-<td>validationLevel</td>
-<td>string</td>
-<td>Available values for the <a href="https://github.com/mjmlio/mjml/tree/master/packages/mjml-validator#validating-mjml">validator</a>: <code>strict</code> <code>soft</code> <code>skip</code></td>
-<td><code>soft</code></td>
-</tr>
-<tr>
-<td>filePath</td>
-<td>string</td>
-<td>Full path of the specified file to use when resolving paths from <a href="#mj-include"><code>mj-include</code> components</a></td>
-<td><code>.</code></td>
+<td>minifyOptions</td>
+<td>object</td>
+<td>Options for HTML minifier, see <a href="https://github.com/mjmlio/mjml/blob/master/packages/mjml-cli/README.md">mjml-cli documentation</a> for more info</td>
+<td><code>{&quot;collapseWhitespace&quot;: true, &quot;minifyCss&quot;: &quot;lite&quot;, &quot;removeEmptyAttributes&quot;: true}</code> <br><br> <code>minifyCss</code> can be <code>false</code>, <code>lite</code>, <code>default</code>, or a cssnano preset object, for example <code>minifyCss: { preset: [&#39;default&#39;, { normalizeString: { preferredQuote: &#39;single&#39; } }] }</code></td>
 </tr>
 <tr>
 <td>mjmlConfigPath</td>
@@ -723,24 +804,81 @@ For more tools, <a href="https://mjml.io/community">check the Community page</a>
 <td><code>process.cwd()</code></td>
 </tr>
 <tr>
+<td>preprocessors</td>
+<td>array of functions</td>
+<td>Preprocessors applied to the xml before parsing. Functions must be <code>(xml: string) =&gt; string</code></td>
+<td><code>[]</code></td>
+</tr>
+<tr>
+<td>sanitizeStyles</td>
+<td>boolean</td>
+<td>Optional setting when using templating syntax to sanitize the input to PostCSS preventing errors</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>templateSyntax</td>
+<td>array of objects</td>
+<td>When <code>sanitizeStyles</code> is <code>true</code>, you can pass optional syntax e.g. <code>templateSyntax: [{ prefix: &#39;{{&#39;, suffix: &#39;}}&#39; }, { prefix: &#39;{=&#39;, suffix: &#39;=}&#39; }]</code></td>
+<td><code>[{&quot;prefix&quot;:&quot;{{&quot;,&quot;suffix&quot;:&quot;}}&quot;},{&quot;prefix&quot;:&quot;[[&quot;,&quot;suffix&quot;:&quot;]]&quot;}]</code></td>
+</tr>
+<tr>
 <td>useMjmlConfigOptions</td>
 <td>boolean</td>
 <td>Allows to use the <code>options</code> attribute from <code>.mjmlconfig</code> file</td>
 <td><code>false</code></td>
 </tr>
 <tr>
-<td>minifyOptions</td>
-<td>object</td>
-<td>Options for HTML minifier, see <a href="https://github.com/mjmlio/mjml/blob/master/packages/mjml-cli/README.md">mjml-cli documentation</a> for more info</td>
-<td><code>{&quot;collapseWhitespace&quot;: true, &quot;minifyCss&quot;: false, &quot;removeEmptyAttributes&quot;: true}</code> <br><br> <code>minifyCss</code> can take a value of <code>false</code> or one of the two preset options <code>lite</code> or <code>default</code>. Within either preset, you can specify specific options from cssnano, for example <code>minifyCss: { options: { preset: [ &#39;default&#39;, { minifyFontValues: { removeQuotes: false }, }, ], }, },</code></td>
-</tr>
-<tr>
-<td>juicePreserveTags</td>
-<td>boolean</td>
-<td>Optional setting when inlining CSS, see <a href="https://github.com/mjmlio/mjml/blob/master/packages/mjml-cli/README.md">mjml-cli documentation</a> for more info</td>
-<td></td>
+<td>validationLevel</td>
+<td>string</td>
+<td>Available values for the <a href="https://github.com/mjmlio/mjml/tree/master/packages/mjml-validator#validating-mjml">validator</a>: <code>strict</code> <code>soft</code> <code>skip</code></td>
+<td><code>soft</code></td>
 </tr>
 </tbody></table>
+<h4 id='include-path-examples'>Include path examples</h4>
+<p>Includes are ignored by default for security (<code>ignoreIncludes: true</code>). Enable them explicitly and scope allowed folders with <code>includePath</code>.</p>
+
+<p>CLI example:</p>
+<pre class="highlight shell"><code><span class="gp">$&gt; </span>mjml template.mjml <span class="se">\</span>
+  --config.filePath /project/templates/newsletter <span class="se">\</span>
+  --config.allowIncludes <span class="nb">true</span> <span class="se">\</span>
+  --config.includePath <span class="s1">'["../_common","../vendor"]'</span>
+</code></pre>
+<ul>
+<li>Single include directory</li>
+</ul>
+<pre class="highlight javascript"><code><span class="kr">import</span> <span class="nx">mjml2html</span> <span class="nx">from</span> <span class="s1">'mjml'</span>
+
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">compileOne</span><span class="p">(</span><span class="nx">source</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="p">{</span> <span class="nx">html</span><span class="p">,</span> <span class="nx">errors</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">mjml2html</span><span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">ignoreIncludes</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">filePath</span><span class="p">:</span> <span class="s1">'/project/templates/campaignA/email1.mjml'</span><span class="p">,</span>
+    <span class="na">includePath</span><span class="p">:</span> <span class="s1">'/project/templates/_common'</span><span class="p">,</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+</code></pre>
+<ul>
+<li>Multiple include directories</li>
+</ul>
+<pre class="highlight javascript"><code><span class="nx">async</span> <span class="kd">function</span> <span class="nx">compileMany</span><span class="p">(</span><span class="nx">source</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="p">{</span> <span class="nx">html</span><span class="p">,</span> <span class="nx">errors</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">mjml2html</span><span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">ignoreIncludes</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">filePath</span><span class="p">:</span> <span class="s1">'/project/templates/campaignA/email1.mjml'</span><span class="p">,</span>
+    <span class="na">includePath</span><span class="p">:</span> <span class="p">[</span><span class="s1">'/project/templates/_common'</span><span class="p">,</span> <span class="s1">'/project/templates/_footers'</span><span class="p">],</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+</code></pre>
+<p>Security notes:</p>
+
+<ul>
+<li>Includes are ignored by default (<code>ignoreIncludes: true</code>). Enable explicitly and scope allowed folders with <code>includePath</code>.</li>
+<li>Paths are fully URL-decoded before validation (handles double/triple encoding like <code>%252F</code>).</li>
+<li>Early rejects: absolute paths, UNC-style paths (<code>//server/...</code> or <code>\\server\\...</code>), Windows drive letters (<code>C:\...</code>), and null bytes (<code>%00</code>).</li>
+<li><p>Canonical boundary checks: we resolve and follow symlinks with <code>realpath</code> and require the target to stay inside <code>filePath</code> or any <code>includePath</code> roots.</p>
+<h3 id='best-practices-for-shared-partials'>Best practices for shared partials</h3></li>
+<li><p>Project templates root: Set <code>filePath</code> to your templates root and write includes relative to that base (e.g., <code>./_common/header.mjml</code>). Simple setup; templates must use base-relative paths.</p></li>
+<li><p>Explicit allowlist: Keep template-relative paths (e.g., <code>../_common/header.mjml</code>) and declare <code>includePath</code> with sibling/shared folders. No template changes; supports multiple shared roots.</p></li>
+<li><p>Security: Only files under <code>filePath</code> and <code>includePath</code> are allowed. Absolute paths outside these roots and <code>..</code> escapes are denied.</p></li>
+</ul>
 <h3 id='api'>API</h3>
 <p>A free-to-use MJML API is available to make it easy to integrate MJML in your application. Head
 over here to <a href="https://mjml.io/api">learn more about the API</a>.</p>
@@ -1083,7 +1221,13 @@ The title is a regular <code>mj-text</code> tag that can be styled as a heading.
 <tr>
 <td>css-class          </td>
 <td>string  </td>
-<td>class name, added to the root HTML element created</td>
+<td>class, added to the <code>body</code> tag in the generated HTML.</td>
+<td></td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>id, added to the <code>body</code> tag in the generated HTML</td>
 <td></td>
 </tr>
 <tr>
@@ -2079,7 +2223,7 @@ components using <code>mj-class=&quot;&lt;name&gt;&quot;</code>.</p>
 </tr>
 <tr>
 <td>border-radius</td>
-<td><code>px</code> <code>%</code></td>
+<td>string</td>
 <td>border radius</td>
 <td><code>6px</code></td>
 </tr>
@@ -2151,7 +2295,7 @@ components using <code>mj-class=&quot;&lt;name&gt;&quot;</code>.</p>
 </tr>
 <tr>
 <td>tb-border-radius</td>
-<td><code>px</code> <code>%</code></td>
+<td>string</td>
 <td>border-radius of the thumbnails</td>
 <td><code>6px</code></td>
 </tr>
@@ -2207,7 +2351,7 @@ components using <code>mj-class=&quot;&lt;name&gt;&quot;</code>.</p>
 </tr>
 <tr>
 <td>border-radius</td>
-<td><code>px</code> <code>%</code></td>
+<td>string</td>
 <td>border radius of the main image</td>
 <td></td>
 </tr>
@@ -2249,7 +2393,7 @@ components using <code>mj-class=&quot;&lt;name&gt;&quot;</code>.</p>
 </tr>
 <tr>
 <td>tb-border-radius</td>
-<td><code>px</code> <code>%</code></td>
+<td>string</td>
 <td>border radius of the thumbnail</td>
 <td></td>
 </tr>
@@ -2335,7 +2479,7 @@ components using <code>mj-class=&quot;&lt;name&gt;&quot;</code>.</p>
 </tr>
 <tr>
 <td>border-radius</td>
-<td><code>px</code> <code>%</code></td>
+<td>string</td>
 <td>border radius</td>
 <td></td>
 </tr>
@@ -2389,7 +2533,7 @@ components using <code>mj-class=&quot;&lt;name&gt;&quot;</code>.</p>
 </tr>
 <tr>
 <td>inner-border-radius</td>
-<td><code>px</code> <code>%</code></td>
+<td>string</td>
 <td>border radius ; requires a padding</td>
 <td></td>
 </tr>
@@ -2773,6 +2917,36 @@ components using <code>mj-class=&quot;&lt;name&gt;&quot;</code>.</p>
 <td></td>
 </tr>
 <tr>
+<td>inner-padding</td>
+<td><code>px</code> <code>%</code></td>
+<td>hero inner padding, supports up to 4 parameters</td>
+<td></td>
+</tr>
+<tr>
+<td>inner-padding-bottom</td>
+<td><code>px</code> <code>%</code></td>
+<td>hero bottom inner padding</td>
+<td></td>
+</tr>
+<tr>
+<td>inner-padding-left</td>
+<td><code>px</code> <code>%</code></td>
+<td>hero left inner padding</td>
+<td></td>
+</tr>
+<tr>
+<td>inner-padding-right</td>
+<td><code>px</code> <code>%</code></td>
+<td>hero right inner padding</td>
+<td></td>
+</tr>
+<tr>
+<td>inner-padding-top</td>
+<td><code>px</code> <code>%</code></td>
+<td>hero top inner padding</td>
+<td></td>
+</tr>
+<tr>
 <td>mode</td>
 <td>string</td>
 <td><code>fluid-height</code> or <code>fixed-height</code></td>
@@ -2874,7 +3048,7 @@ components using <code>mj-class=&quot;&lt;name&gt;&quot;</code>.</p>
 </tr>
 <tr>
 <td>border-radius</td>
-<td><code>px</code> <code>%</code></td>
+<td>string</td>
 <td>border radius</td>
 <td></td>
 </tr>
@@ -3787,7 +3961,7 @@ Note that default icons are transparent, which allows <code>background-color</co
 </tr>
 <tr>
 <td>border-radius</td>
-<td><code>px</code></td>
+<td>string</td>
 <td>border radius</td>
 <td><code>3px</code></td>
 </tr>
@@ -4744,8 +4918,14 @@ Setting it will change the width of the section from the default 600px to 100%.<
 <p>Alternatively, you can validate the file without rendering by adding the <code>--validate</code> option</p>
 <pre class="highlight shell"><code>mjml --validate template.mjml
 </code></pre><h3 id='in-javascript'>In Javascript</h3>
-<p>In Javascript, you can provide the level through the <code>options</code> parameters on <code>mjml2html</code>. E.g. <code>mjml2html(inputMJML, { validationLevel: &#39;strict&#39; })</code></p>
+<p>In Javascript, you can provide the level through the <code>options</code> parameters on <code>mjml2html</code>:</p>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">import</span> <span class="nx">mjml2html</span> <span class="nx">from</span> <span class="s1">'mjml'</span>
 
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">validate</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">mjml2html</span><span class="p">(</span><span class="nx">inputMJML</span><span class="p">,</span> <span class="p">{</span> <span class="na">validationLevel</span><span class="p">:</span> <span class="s1">'strict'</span> <span class="p">})</span>
+  <span class="k">return</span> <span class="nx">result</span>
+<span class="p">}</span>
+</code></pre>
 <p>Setting to <code>strict</code> will raise a <code>MJMLValidationError</code> exception. This object has 2 methods:</p>
 
 <ul>
@@ -4772,10 +4952,10 @@ programmatic manipulation or with the MJML API.</p>
 
 <p>Exactly like using MJML as a markup, the JSON definition can be passed as an object to the <code>mjml2html</code> function.
 Here is working example:</p>
-<pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">mjml2html</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'mjml'</span><span class="p">)</span>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">import</span> <span class="nx">mjml2html</span> <span class="nx">from</span> <span class="s1">'mjml'</span>
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span>
-  <span class="nx">mjml2html</span><span class="p">({</span>
+<span class="nx">async</span> <span class="kd">function</span> <span class="nx">example</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">mjml2html</span><span class="p">({</span>
     <span class="na">tagName</span><span class="p">:</span> <span class="s1">'mjml'</span><span class="p">,</span>
     <span class="na">attributes</span><span class="p">:</span> <span class="p">{},</span>
     <span class="na">children</span><span class="p">:</span> <span class="p">[</span>
@@ -4819,9 +4999,11 @@ Here is working example:</p>
           <span class="p">},</span>
         <span class="p">],</span>
       <span class="p">},</span>
-    <span class="p">],</span>
-  <span class="p">}),</span>
-<span class="p">)</span>
+    <span class="p">])</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nx">example</span><span class="p">()</span>
 </code></pre><h2 id='tooling'>Tooling</h2>
 <p>In order to provide you with the best and most efficient experience using MJML, we&#39;ve developed some tools to integrate it seamlessly into your development workflow:</p>
 <h3 id='visual-studio-code'>Visual Studio Code</h3>
@@ -4836,6 +5018,48 @@ Here is working example:</p>
 <p><a href="https://gulpjs.com/">Gulp</a> is a tool designed to help you automate and enhance your workflow. Our plugin enables you to plug the MJML translation engine into your workflow, helping you to streamline your development workflow.</p>
 
 <p>It is available here on <a href="https://github.com/mjmlio/gulp-mjml">Github</a>.</p>
+<h2 id='template-tokens-in-css'>Template Tokens in CSS</h2>
+<p>MJML can safely minify HTML and CSS while preserving template tokens embedded in CSS. This is useful when your templating system (Liquid, Handlebars, etc.) injects dynamic values into style attributes or <code>&lt;style&gt;</code> blocks.</p>
+
+<ul>
+<li>Supported contexts: CSS value tokens (<code>color: {{primary}}</code>) and CSS property-name tokens (<code>{{prop}}: {{value}}</code>), as well as block tokens inside style contexts.</li>
+<li>Enable sanitization: pass <code>sanitizeStyles: true</code> when you also enable <code>minify: true</code>. Configure token wrappers with <code>templateSyntax</code> (array of <code>{ prefix, suffix }</code> pairs, defaults to <code>{{…}}</code> and <code>[[…]]</code>).</li>
+<li>Mixed syntax: by default MJML disallows mixing block tokens with CSS tokens in the same document. Opt-in via <code>allowMixedSyntax: true</code> if you need to mix.</li>
+<li>Broken delimiters pre-check: MJML fails fast when it detects unbalanced token delimiters inside CSS (e.g. more <code>{{</code> than <code>}}</code>). Fix your tokens or disable CSS minification.</li>
+</ul>
+<h3 id='cli-examples'>CLI examples</h3>
+<ul>
+<li>Preserve CSS tokens while minifying:</li>
+</ul>
+<pre class="highlight shell"><code>mjml input.mjml -o out.html --config.sanitizeStyles <span class="nb">true</span> --config.minify <span class="nb">true</span>
+</code></pre>
+<ul>
+<li>Allow mixed syntax:</li>
+</ul>
+<pre class="highlight shell"><code>mjml input.mjml -o out.html --config.sanitizeStyles <span class="nb">true</span> --config.minify <span class="nb">true</span> --config.allowMixedSyntax <span class="nb">true</span>
+</code></pre>
+<ul>
+<li>Disable CSS minification (to bypass token pre-check/minifier):</li>
+</ul>
+<pre class="highlight shell"><code>mjml input.mjml -o out.html --config.minify <span class="nb">true</span> --config.minifyOptions <span class="s1">'{"minifyCss": false}'</span>
+</code></pre><h3 id='programmatic-usage'>Programmatic usage</h3><pre class="highlight javascript"><code><span class="nx">async</span> <span class="kd">function</span> <span class="nx">example</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">html</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">mjml</span><span class="p">(</span><span class="nx">input</span><span class="p">,</span> <span class="p">{</span>
+        <span class="na">minify</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">sanitizeStyles</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">templateS</span><span class="err">­</span><span class="na">yntax</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span> <span class="na">prefix</span><span class="p">:</span> <span class="s1">'{{'</span><span class="p">,</span> <span class="na">suffix</span><span class="p">:</span> <span class="s1">'}}'</span> <span class="p">},</span>
+            <span class="p">{</span> <span class="na">prefix</span><span class="p">:</span> <span class="s1">'[['</span><span class="p">,</span> <span class="na">suffix</span><span class="p">:</span> <span class="s1">']]'</span> <span class="p">},</span>
+        <span class="p">],</span>
+        <span class="na">allowMixedSyntax</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="c1">// set true to allow block + CSS tokens together</span>
+        <span class="c1">// Disable CSS minify if your tokens are broken or your minifier cannot parse them:</span>
+        <span class="na">minifyOptions</span><span class="p">:</span> <span class="p">{</span> <span class="na">minifyCss</span><span class="p">:</span> <span class="kc">false</span> <span class="p">},</span>
+    <span class="p">})</span>
+    <span class="c1">// use html variable</span>
+<span class="p">}</span>
+
+<span class="nx">example</span><span class="p">()</span>
+</code></pre>
+<p>For the canonical list of CLI flags and Node.js options, see <a href="https://documentation.mjml.io/#usage">Usage</a></p>
 <h2 id='community-contributions'>Community Contributions</h2>
 <p>The MJML ecosystem has a dedicated community that we count to help make it grow and provide it with even more awesome tools, always aiming to make development with MJML an efficient and fun process!</p>
 
