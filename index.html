@@ -3537,7 +3537,7 @@ components using <code>mj-class=&quot;&lt;name&gt;&quot;</code>.</p>
 </code></pre>
 <p>You can tell the minifier to ignore some content by wrapping it between two <code>&lt;!-- htmlmin:ignore --&gt;</code> tags.</p>
 
-<p>You can use <code>mj-raw</code> to add a templating language. Note that if you and use the <code>minify</code> option, you might get a <code>Parsing error</code>, especially when using the <code>&lt;</code> character. These can be ignored by using the <code>&lt;!-- htmlmin:ignore --&gt;</code> tags.mlmin:ignore --&gt;` tags.</p>
+<p>You can use <code>mj-raw</code> to add a templating language. Note that if you and use the <code>minify</code> option, you might get a <code>Parsing error</code>, especially when using the <code>&lt;</code> character. These can be ignored by using the <code>&lt;!-- htmlmin:ignore --&gt;</code> tags.</p>
 <pre class="highlight xml tab-xml"><code><span class="nt">&lt;mjml&gt;</span>
   <span class="nt">&lt;mj-body&gt;</span>
     <span class="nt">&lt;mj-raw&gt;</span>
@@ -5019,13 +5019,13 @@ Here is working example:</p>
 
 <p>It is available here on <a href="https://github.com/mjmlio/gulp-mjml">Github</a>.</p>
 <h2 id='template-tokens-in-css'>Template Tokens in CSS</h2>
-<p>MJML can safely minify HTML and CSS while preserving template tokens embedded in CSS. This is useful when your templating system (Liquid, Handlebars, etc.) injects dynamic values into style attributes or <code>&lt;style&gt;</code> blocks.</p>
+<p>MJML can safely minify and beautify HTML and CSS while preserving template tokens embedded in CSS. This is useful when your templating system (Liquid, Handlebars, etc.) injects dynamic values into style attributes or <code>&lt;style&gt;</code> blocks.</p>
 
 <ul>
-<li>Supported contexts: CSS value tokens (<code>color: {{primary}}</code>) and CSS property-name tokens (<code>{{prop}}: {{value}}</code>), as well as block tokens inside style contexts.</li>
-<li>Enable sanitization: pass <code>sanitizeStyles: true</code> when you also enable <code>minify: true</code>. Configure token wrappers with <code>templateSyntax</code> (array of <code>{ prefix, suffix }</code> pairs, defaults to <code>{{…}}</code> and <code>[[…]]</code>).</li>
-<li>Mixed syntax: by default MJML disallows mixing block tokens with CSS tokens in the same document. Opt-in via <code>allowMixedSyntax: true</code> if you need to mix.</li>
-<li>Broken delimiters pre-check: MJML fails fast when it detects unbalanced token delimiters inside CSS (e.g. more <code>{{</code> than <code>}}</code>). Fix your tokens or disable CSS minification.</li>
+<li><strong>Supported contexts:</strong> CSS value tokens (<code>color: {{primary}}</code>) and CSS property-name tokens (<code>{{prop}}: {{value}}</code>), as well as block tokens inside style contexts.</li>
+<li><strong>Enable sanitization:</strong> pass <code>sanitizeStyles: true</code> when you also enable <code>minify: true</code> or <code>beautify: true</code>. Configure token wrappers with <code>templateSyntax</code> (array of <code>{ prefix, suffix }</code> pairs, defaults to <code>{{…}}</code> and <code>[[…]]</code>).</li>
+<li><strong>Mixed syntax:</strong> by default MJML disallows mixing block tokens with CSS tokens in the same document. Opt-in via <code>allowMixedSyntax: true</code> if you need to mix.</li>
+<li><strong>Broken delimiters pre-check:</strong> MJML fails fast when it detects unbalanced token delimiters inside CSS (e.g. more <code>{{</code> than <code>}}</code>). Fix your tokens or disable CSS minification.</li>
 </ul>
 <h3 id='cli-examples'>CLI examples</h3>
 <ul>
