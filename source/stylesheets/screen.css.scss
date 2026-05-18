@@ -630,12 +630,6 @@ body {
     font-weight: normal;
   }
 
-  td:not(:first-child):not(:last-child) {
-    code {
-      white-space: nowrap;
-    }
-  }
-
   pre > code {
     background-color: transparent;
     padding: 0;
