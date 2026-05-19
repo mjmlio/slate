@@ -5,11 +5,13 @@ on:
     types: [build-doc]
   workflow_dispatch:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 jobs:
   buildDoc:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v5
 
       - name: Install Ruby
         uses: ruby/setup-ruby@v1
@@ -17,16 +19,16 @@ jobs:
           ruby-version: 2.6
 
       - name: Install NodeJS
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
 
       - name: Build Documentation
         run: bash make.sh
 
       - name: Deploy Documentation
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          ACCESS_TOKEN: ${{ secrets.documentation_token }}
-          BRANCH: gh-pages
-          FOLDER: mjml-doc
+          token: ${{ secrets.documentation_token }}
+          branch: gh-pages
+          folder: mjml-doc
