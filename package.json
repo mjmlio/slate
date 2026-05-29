@@ -24,10 +24,5 @@
   "bugs": {
     "url": "https://github.com/mjmlio/slate/issues"
   },
-  "homepage": "https://github.com/mjmlio/slate#readme",
-  "dependencies": {
-    "babel-register": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1"
-  }
+  "homepage": "https://github.com/mjmlio/slate#readme"
 }

@@ -1,7 +1,6 @@
-
-import fs from 'fs'
-import path from 'path'
-import config from '../mjml/doc/config.json'
+const fs = require('fs')
+const path = require('path')
+const config = require('../mjml/doc/config.json')
 
 const DEST = './CONTENT.md'
 const docFilesPath = '../'
