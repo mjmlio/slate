@@ -1461,6 +1461,11 @@ components using <code>mj-class=&quot;&lt;name&gt;&quot;</code>.</p>
 
 <p>You can use multiple <code>mj-selector</code> tags inside a <code>mj-html-attributes</code> tag, and multiple <code>mj-html-attribute</code> tags inside a <code>mj-selector</code> tag.</p>
 
+<div class="alert alert-caution" role="alert">
+  <p>Caution</p>
+  <p><code>mj-html-attributes</code> re-parses the generated HTML internally. Template tags that look like HTML or XML (for example EJS <code>&lt;%= value %&gt;</code>) can be altered or broken during that pass. Prefer running your templating engine after MJML rendering, or avoid combining those tags with <code>mj-html-attributes</code>.</p>
+</div>
+
 <p class="cta-container"><a class="cta" href="https://mjml.io/try-it-live/components/head-html-attributes">Try it live</a></p>
 <h3 id='mj-preview'>mj-preview</h3>
 <p>This tag allows you to set the preview text that will be displayed in the inbox of the recipient.</p>
@@ -4781,7 +4786,7 @@ Setting it will change the width of the section from the default 600px to 100%.<
 
 <p>Since the content is not processed, this means that any text won&#39;t be escaped, so if you use characters that are used to define html tags in your text, like <code>&lt;</code> or <code>&gt;</code>, you should use the encoded characters <code>&amp;lt;</code> and <code>&amp;lt;</code>.</p>
 
-<p>There can also be issues if you use the <code>minify</code> option, <code>mj-html-attributes</code> or an inline <code>mj-style</code>, because these require the HTML to be re-parsed internally.</p>
+<p>There can also be issues if you use the <code>minify</code> option, <code>mj-html-attributes</code> or an inline <code>mj-style</code>, because these require the HTML to be re-parsed internally. In particular, <code>mj-html-attributes</code> can rewrite template tags that resemble HTML/XML (for example EJS <code>&lt;%= value %&gt;</code>).</p>
 
 <p>If you&#39;re just using the <code>minify</code> option, and need to use the <code>&lt; &gt;</code> characters, e.g for a templating language, you can also avoid this problem by wrapping the troublesome content between two <code>&lt;!-- htmlmin:ignore --&gt;</code> tags.</p>
 
